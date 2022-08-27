@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from '../src/Components/Navbar/Navbar';
-import { Routes } from 'react-router-dom';
-import Todo from './Pages/Todo';
+import { Router, Routes, Route } from 'react-router-dom';
+import Todo from './Pages/Todos/Todo';
+import Home from './Pages/Homes/Home';
 
 function App() {
   const [sideToggle, setsideToggle] = useState(true);
@@ -11,7 +12,9 @@ function App() {
     <div className='App'>
       <Navbar data={{ sideToggle, setsideToggle }} />
       <div className='main_content'>
-        <Todo style='marginTop:40px' />
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
       </div>
     </div>
   );

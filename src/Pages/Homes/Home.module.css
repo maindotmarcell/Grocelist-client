@@ -1,0 +1,10 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.card {
+  padding: 10px;
+  -webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+  box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+}
