@@ -12,7 +12,7 @@ export const SidebarData = [
   },
   {
     title: 'Personal Todos',
-    path: '/personaltodo',
+    path: '/',
     icon: <AiOutlineHome />,
   },
   {
@@ -22,7 +22,7 @@ export const SidebarData = [
   },
   {
     title: 'Reminders',
-    path: '/reminders',
+    path: '/',
     icon: <BsAlarm />,
   },
 ];

@@ -1,47 +1,14 @@
-import React, { useState } from 'react';
-import styles from './Todo.module.css';
+import React from 'react';
 
 const Todo = () => {
-  const [todo, setTodo] = useState([]);
-  const [grocery, setGrocery] = useState('');
-  const [date, setDate] = useState('');
   return (
-    <div className={styles.container}>
-      <div className={styles.inputContainer}>
-        <div className='input'>
-          <input
-            type='text'
-            placeholder='Grocery'
-            onChange={(e) => setGrocery(e.target.value)}
-          />
-          <input
-            type='text'
-            placeholder='price'
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-
-        <button
-          className={styles.btn}
-          onClick={() =>
-            setTodo((prevValue) => [...prevValue, { grocery, date }])
-          }
-        >
-          Add
-        </button>
+    <>
+      <div className='input'>
+        <input type='text' placeholder='Grocery' />
+        <input type='text' placeholder='price' />
       </div>
-      <div>
-        {todo.map((i) => (
-          <>
-            <div>
-              <p></p>
-              {i.grocery}
-            </div>
-            <span>{i.date}</span>
-          </>
-        ))}
-      </div>
-    </div>
+      <button>Add</button>
+    </>
   );
 };
 export default Todo;
