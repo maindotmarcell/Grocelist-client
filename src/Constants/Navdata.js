@@ -12,7 +12,7 @@ export const SidebarData = [
   },
   {
     title: 'Personal Todos',
-    path: '/',
+    path: '/todos',
     icon: <AiOutlineHome />,
   },
   {

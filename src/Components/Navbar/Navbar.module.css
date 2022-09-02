@@ -5,7 +5,8 @@
   position: fixed;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(240, 240, 240);
+  color: white;
+  background-color: rgba(111, 0, 255, 0.918);
 }
 
 .nav_end {
@@ -22,7 +23,7 @@
 
 .nav_menu {
   background-color: white;
-  color: black;
+  color: #e1e1e1;
   width: 250px;
   height: 100%;
   display: flex;
@@ -31,12 +32,12 @@
   top: 0;
   left: -100%;
   transition: 850ms;
-  background-color: rgb(240, 240, 240);
+  background-color: rgba(111, 0, 255, 0.918);
 }
 
 .nav_menu_active {
   background-color: white;
-  color: black;
+  color: rgb(230, 230, 230);
   width: 200px;
   height: 100%;
   display: flex;
@@ -44,7 +45,7 @@
   top: 60px;
   left: 0;
   transition: 350ms;
-  background-color: rgb(240, 240, 240);
+  background-color: rgba(111, 0, 255, 0.918);
 }
 .menu_bars {
   margin-left: 2rem;
@@ -62,7 +63,7 @@
 
 .nav_text a {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 18px;
   width: 95%;
   height: 100%;

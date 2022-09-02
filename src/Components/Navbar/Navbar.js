@@ -25,14 +25,6 @@ const Navbar = (props) => {
         }
       >
         <ul className={classes.nav_menu_items}>
-          <ul style={{ display: 'flex' }}>
-            <li style={{ marginRight: '4px', listStyleType: 'none' }}>
-              Signup
-            </li>
-            <li style={{ marginRight: '4px', listStyleType: 'none' }}>
-              Profile
-            </li>
-          </ul>
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={classes.nav_text}>
@@ -43,6 +35,14 @@ const Navbar = (props) => {
               </li>
             );
           })}
+          <ul style={{ display: 'flex' }}>
+            <li style={{ marginRight: '4px', listStyleType: 'none' }}>
+              Signup
+            </li>
+            <li style={{ marginRight: '4px', listStyleType: 'none' }}>
+              Profile
+            </li>
+          </ul>
         </ul>
       </nav>
     </div>

@@ -5,17 +5,17 @@ const Home = () => {
     <div className={styles.home}>
       <h1>Dues</h1>
       <div className={styles.card}>
-        <p>Rent</p>
+        <h3>Rent</h3>
         <p>$120</p>
         <p>Due 12 September2022</p>
       </div>
       <div className={styles.card}>
-        <p>WaterBill</p>
+        <h3>WaterBill</h3>
         <p>$220</p>
         <p>Due 12 September 2022</p>
       </div>
       <div className={styles.card}>
-        <p>Electricity Bill</p>
+        <h3>Electricity Bill</h3>
         <p>$220</p>
         <p>Due 12 September 2022</p>
       </div>

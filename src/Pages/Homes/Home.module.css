@@ -8,3 +8,9 @@
   -webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
   box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
 }
+.card h3 {
+  background-color: black;
+  color: white;
+  margin-left: -10px;
+  text-align: center;
+}
