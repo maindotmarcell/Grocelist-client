@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = () => {
+const Dashboard = () => {
   return (
     <div>
       <div className='input'>
@@ -10,4 +10,4 @@ const Todo = () => {
     </div>
   );
 };
-export default Todo;
+export default Dashboard;

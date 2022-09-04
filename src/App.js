@@ -4,6 +4,7 @@ import Navbar from '../src/Components/Navbar/Navbar';
 import { Router, Routes, Route } from 'react-router-dom';
 import Todo from './Pages/Todos/Todo';
 import Home from './Pages/Homes/Home';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   const [sideToggle, setsideToggle] = useState(true);
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/todos' element={<Todo />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
       </div>
     </div>

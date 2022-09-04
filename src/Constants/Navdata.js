@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaCartArrowDown } from 'react-icons/fa';
+//import { FaCartArrowDown } from 'react-icons/fa';
 import { AiOutlineHome } from 'react-icons/ai';
-import { BiGroup } from 'react-icons/bi';
-import { BsFillCalendarDayFill, BsAlarm } from 'react-icons/bs';
+import { BiGroup, BiNote } from 'react-icons/bi';
+import { /*BsFillCalendarDayFill,*/ BsAlarm } from 'react-icons/bs';
 
 export const SidebarData = [
   {
@@ -24,5 +24,10 @@ export const SidebarData = [
     title: 'Reminders',
     path: '/',
     icon: <BsAlarm />,
+  },
+  {
+    title: 'Dashboard',
+    path: '/dashboard',
+    icon: <BiNote />,
   },
 ];
