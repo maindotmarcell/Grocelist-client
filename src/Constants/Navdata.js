@@ -1,9 +1,8 @@
 import React from 'react';
-// import { FaCartArrowDown } from 'react-icons/fa';
+//import { FaCartArrowDown } from 'react-icons/fa';
 import { AiOutlineHome } from 'react-icons/ai';
-import { BiGroup } from 'react-icons/bi';
-import { /* BsFillCalendarDayFill, */ BsAlarm } from 'react-icons/bs';
-import { IoIosList } from 'react-icons/io';
+import { BiGroup, BiNote } from 'react-icons/bi';
+import { /*BsFillCalendarDayFill,*/ BsAlarm } from 'react-icons/bs';
 
 export const SidebarData = [
   {
@@ -27,8 +26,8 @@ export const SidebarData = [
     icon: <BsAlarm />,
   },
   {
-    title: 'Lists',
-    path: '/lists',
-    icon: <IoIosList/>
-  }
+    title: 'Dashboard',
+    path: '/dashboard',
+    icon: <BiNote />,
+  },
 ];
