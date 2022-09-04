@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from '../../Constants/Navdata';
 
 const Navbar = (props) => {
-  console.log(props);
+  // console.log(props);
   const showSidebar = () => {
     props?.data.setsideToggle(!props.data.sideToggle);
   };
