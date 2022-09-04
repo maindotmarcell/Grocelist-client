@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navbar from '../src/Components/Navbar/Navbar';
 import { Router, Routes, Route } from 'react-router-dom';
