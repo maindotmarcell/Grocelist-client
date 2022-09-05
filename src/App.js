@@ -4,6 +4,8 @@ import Navbar from '../src/Components/Navbar/Navbar';
 import { Router, Routes, Route } from 'react-router-dom';
 import Todo from './Pages/Todos/Todo';
 import Home from './Pages/Homes/Home';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import List from './Pages/Lists/List';
 import { db } from './firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -32,6 +34,8 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/todos" element={<Todo />} />
+					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/lists" element={<List />} />
 				</Routes>
 			</div>
 		</div>

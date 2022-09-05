@@ -3,6 +3,7 @@ import React from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiGroup, BiNote } from 'react-icons/bi';
 import { /*BsFillCalendarDayFill,*/ BsAlarm } from 'react-icons/bs';
+import { IoIosList } from 'react-icons/io';
 
 export const SidebarData = [
   {
@@ -30,4 +31,9 @@ export const SidebarData = [
     path: '/dashboard',
     icon: <BiNote />,
   },
+  {
+    title: 'List',
+    path: '/lists',
+    icon: <IoIosList />,
+  }
 ];
