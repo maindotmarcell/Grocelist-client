@@ -35,5 +35,13 @@ export const SidebarData = [
     title: 'List',
     path: '/lists',
     icon: <IoIosList />,
+  },
+  {
+    title: 'Register',
+    path: '/register',
+  },
+  {
+    title: 'Login',
+    path: '/login'
   }
 ];

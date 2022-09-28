@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from '../src/Components/Navbar/Navbar';
-import { Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Todo from './Pages/Todos/Todo';
-import Home from './Pages/Homes/Home';
+import Home from './Pages/Home/Home';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import List from './Pages/Lists/List';
+import Registration from './Pages/Authentication/Registration';
+import Login from './Pages/Authentication/Login';
+
 import { db } from './firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -36,6 +39,8 @@ function App() {
 					<Route path="/todos" element={<Todo />} />
 					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/lists" element={<List />} />
+					<Route path="/register" element={<Registration />} />
+					<Route path="/login" element={<Login />} />
 				</Routes>
 			</div>
 		</div>
