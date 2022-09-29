@@ -10,19 +10,45 @@ import Registration from './Pages/Authentication/Registration';
 import Login from './Pages/Authentication/Login';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
-
 function App() {
 	const [sideToggle, setsideToggle] = useState(true);
-	const token = localStorage.getItem('token')
 	return (
 		<div className="App">
 			<Navbar data={{ sideToggle, setsideToggle }} />
 			<div className="main_content">
 				<Routes>
-					<Route path="/" element={<PrivateRoute><Home /></PrivateRoute>}/>
-					<Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
-					<Route path="/todos" element={<PrivateRoute><Todo /></PrivateRoute>}/>
-					<Route path="/lists" element={<PrivateRoute><List /></PrivateRoute>}/>
+					<Route
+						path="/"
+						element={
+							<PrivateRoute>
+								<Home />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/dashboard"
+						element={
+							<PrivateRoute>
+								<Dashboard />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/todos"
+						element={
+							<PrivateRoute>
+								<Todo />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/lists"
+						element={
+							<PrivateRoute>
+								<List />
+							</PrivateRoute>
+						}
+					/>
 					<Route path="/register" element={<Registration />} />
 					<Route path="/login" element={<Login />} />
 				</Routes>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Registration() {
@@ -7,7 +6,6 @@ function Registration() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const navigate = useNavigate();
 
     const registerUser = async (event) => {
         event.preventDefault()

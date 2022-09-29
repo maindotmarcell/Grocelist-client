@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import classes from './Navbar.module.css';
 import { MdPermIdentity } from 'react-icons/md';
@@ -10,7 +10,7 @@ const Navbar = (props) => {
 
 	function logout() {
 		localStorage.removeItem('token');
-		window.location.href = '/'
+		window.location.href = '/';
 	}
 
 	async function getLoggedInUser() {
