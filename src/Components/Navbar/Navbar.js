@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import classes from './Navbar.module.css';
 import { MdPermIdentity } from 'react-icons/md';
@@ -7,6 +7,11 @@ import { SidebarData } from '../../Constants/Navdata';
 
 const Navbar = (props) => {
 	const [user, setUser] = useState();
+
+	function logout() {
+		localStorage.removeItem('token');
+		window.location.href = '/'
+	}
 
 	async function getLoggedInUser() {
 		const req = await fetch('http://localhost:1337/api/current-user', {
@@ -19,11 +24,12 @@ const Navbar = (props) => {
 		if (data.status === 'ok') {
 			setUser(data.name);
 		} else {
-			alert(data.error);
+			console.log(data.error);
 		}
 	}
-  getLoggedInUser();
+	getLoggedInUser();
 	// console.log(props);
+
 	const showSidebar = () => {
 		props?.data.setsideToggle(!props.data.sideToggle);
 	};
@@ -53,14 +59,9 @@ const Navbar = (props) => {
 							</li>
 						);
 					})}
-					<ul style={{ display: 'flex' }}>
-						<li style={{ marginRight: '4px', listStyleType: 'none' }}>
-							Signup
-						</li>
-						<li style={{ marginRight: '4px', listStyleType: 'none' }}>
-							Profile
-						</li>
-					</ul>
+					<li>
+						<button onClick={logout}>Logout</button>
+					</li>
 				</ul>
 			</nav>
 		</div>

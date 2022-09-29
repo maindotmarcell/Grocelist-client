@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Registration() {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const navigate = useNavigate();
 
     const registerUser = async (event) => {
         event.preventDefault()
@@ -20,6 +24,13 @@ function Registration() {
         })
 
         const data = await response.json()
+		if (data.user) {
+			localStorage.setItem('token', data.user)
+			alert('Registration successful')
+			window.location.href = '/'
+		} else {
+			alert('Please check the information you have provided')
+		}
         console.log(data);
 
     }
@@ -51,6 +62,7 @@ function Registration() {
                 <br />
                 <input type="submit" value="Register" />
 			</form>
+			<p>Already have an account? <Link to="/login"><button>Login</button></Link></p>
 		</div>
 	);
 }
