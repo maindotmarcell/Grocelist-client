@@ -3,7 +3,7 @@ import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   return (
-    <div class>
+    <div >
       <h1>General Notes and Dashboard</h1>
       <div className='input'>
         <input type='text' placeholder='New Note' />

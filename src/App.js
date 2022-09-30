@@ -17,38 +17,12 @@ function App() {
 			<Navbar data={{ sideToggle, setsideToggle }} />
 			<div className="main_content">
 				<Routes>
-					<Route
-						path="/"
-						element={
-							<PrivateRoute>
-								<Home />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path="/dashboard"
-						element={
-							<PrivateRoute>
-								<Dashboard />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path="/todos"
-						element={
-							<PrivateRoute>
-								<Todo />
-							</PrivateRoute>
-						}
-					/>
-					<Route
-						path="/lists"
-						element={
-							<PrivateRoute>
-								<List />
-							</PrivateRoute>
-						}
-					/>
+					<Route element={<PrivateRoute />}>
+						<Route path="/" element={<Home />} />
+						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/todos" element={<Todo />} />
+						<Route path="/lists" element={<List />} />
+					</Route>
 					<Route path="/register" element={<Registration />} />
 					<Route path="/login" element={<Login />} />
 				</Routes>

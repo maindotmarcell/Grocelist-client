@@ -10,7 +10,7 @@ const Navbar = (props) => {
 
 	function logout() {
 		localStorage.removeItem('token');
-		window.location.href = '/';
+		window.location.href = '/login';
 	}
 
 	async function getLoggedInUser() {
