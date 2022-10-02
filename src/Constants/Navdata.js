@@ -36,4 +36,16 @@ export const SidebarData = [
 		path: '/lists',
 		icon: <IoIosList />,
 	},
+	{
+		title: 'Create Group',
+		path: '/create-group',
+	},
+	{
+		title: 'Existing Groups',
+		path: '/existing-groups',
+	},
+	{
+		title: 'Add Group Member',
+		path: '/add-group-member',
+	},
 ];
