@@ -17,7 +17,7 @@ function App() {
 	const [sideToggle, setsideToggle] = useState(true);
 	return (
 		<div className="App">
-			<Navbar data={{ sideToggle, setsideToggle }} />
+			<Navbar className="nav" data={{ sideToggle, setsideToggle }} />
 			<div className="main_content">
 				<Routes>
 					<Route element={<PrivateRoute />}>
