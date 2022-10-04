@@ -6,46 +6,46 @@ import { /*BsFillCalendarDayFill,*/ BsAlarm } from 'react-icons/bs';
 import { IoIosList } from 'react-icons/io';
 
 export const SidebarData = [
-	{
-		title: 'Home',
-		path: '/',
-		icon: <AiOutlineHome />,
-	},
-	{
-		title: 'Personal Todos',
-		path: '/todos',
-		icon: <AiOutlineHome />,
-	},
-	{
-		title: 'Groups',
-		path: '/',
-		icon: <BiGroup />,
-	},
-	{
-		title: 'Reminders',
-		path: '/',
-		icon: <BsAlarm />,
-	},
-	{
-		title: 'Dashboard',
-		path: '/dashboard',
-		icon: <BiNote />,
-	},
-	{
-		title: 'List',
-		path: '/lists',
-		icon: <IoIosList />,
-	},
-	{
-		title: 'Create Group',
-		path: '/create-group',
-	},
-	{
-		title: 'Existing Groups',
-		path: '/existing-groups',
-	},
-	{
-		title: 'Add Group Member',
-		path: '/add-group-member',
-	},
+  {
+    title: 'Home',
+    path: '/',
+    icon: <AiOutlineHome />,
+  },
+  {
+    title: 'Personal Todos',
+    path: '/todos',
+    icon: <AiOutlineHome />,
+  },
+  {
+    title: 'Groups',
+    path: '/',
+    icon: <BiGroup />,
+  },
+  {
+    title: 'Reminders',
+    path: '/reminders',
+    icon: <BsAlarm />,
+  },
+  {
+    title: 'Dashboard',
+    path: '/dashboard',
+    icon: <BiNote />,
+  },
+  {
+    title: 'List',
+    path: '/lists',
+    icon: <IoIosList />,
+  },
+  {
+    title: 'Create Group',
+    path: '/create-group',
+  },
+  {
+    title: 'Existing Groups',
+    path: '/existing-groups',
+  },
+  {
+    title: 'Add Group Member',
+    path: '/add-group-member',
+  },
 ];

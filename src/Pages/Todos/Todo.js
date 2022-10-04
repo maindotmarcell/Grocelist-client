@@ -11,7 +11,7 @@ const Todo = () => {
   const day = new Date().getDay();
   const currentDate = `${year} ${month} ${day}`;
 
-  const [todoitems, setTodoItems] = useState(' ');
+  const [todoitems, setTodoItems] = useState('');
   const [date, setDate] = useState(currentDate);
   const [todos, setTodos] = useState([]);
   const handleTodo = () => {
@@ -26,7 +26,7 @@ const Todo = () => {
   };
   return (
     <div className={styles.container}>
-      <h2>Add Todo List</h2>
+      <h2>Add Todo List 📋</h2>
       <div className={styles.content_outer}>
         <div className={styles.content_inner}>
           <div className={styles.selected_Date}>
@@ -41,6 +41,7 @@ const Todo = () => {
               <input
                 className={styles.todoInput}
                 type='text'
+                value={todoitems}
                 placeholder='Grocery'
                 data-testid='input'
                 onChange={handleChange}

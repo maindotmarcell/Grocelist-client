@@ -1,0 +1,47 @@
+.container {
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  height: 90vh;
+  border-radius: 15px;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin: 0px auto;
+  pointer-events: inherit;
+  padding-bottom: 428.4px;
+  text-decoration: none;
+  width: 100%;
+  max-width: 660px;
+  padding-top: 10px;
+  position: relative;
+}
+.dateBox {
+  display: flex;
+  justify-content: space-between;
+}
+.inputBox {
+  display: flex;
+  padding-top: 40px;
+}
+.addButton {
+  border: 2px solid black;
+  border-radius: 999px;
+  width: 20px;
+  height: 20px;
+  font-weight: 800;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+}
+.addButton:hover {
+  cursor: pointer;
+}
+.reminderInput {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 75%;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
