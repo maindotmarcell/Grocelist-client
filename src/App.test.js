@@ -17,3 +17,10 @@ test('renders the correct initial DOM', () => {
   // There should be 0 todos in the document.
   expect(todos.length).toBe(0);
 });
+
+test('render the correct intial DOM for Reminders', () => {
+  const doc = render(<Reminder />);
+
+  const groupInputEl = doc.getByTestId('input');
+  expect(groupInputEl.getAttribute('value')).toBe('');
+});
