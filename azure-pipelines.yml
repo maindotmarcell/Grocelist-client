@@ -13,24 +13,15 @@ steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
 
-<<<<<<< HEAD
-  - script: npm test -- --watchAll=false
-    displayName: 'Test'
-
   - script: |
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
-=======
+
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 - script: |
     npm install
@@ -38,4 +29,4 @@ steps:
     npm test
 - script: |
     npm run start
->>>>>>> symon
+
