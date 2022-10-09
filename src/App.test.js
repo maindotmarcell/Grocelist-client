@@ -42,3 +42,9 @@ test('render the correct intial DOM for dashboard', () => {
   const groupInputlEl = view.getByTestId('todoContainer');
   expect(groupInputlEl.getAttribute('value')).toBe(null);
 });
+//Test for list page
+test('render the correct to renders List', () => {
+  const view = render(<List />);
+  const inputElement = view.getByTestId('input');
+  expect(inputElement.getAttribute('value')).toBe(null);
+});
