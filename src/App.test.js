@@ -5,6 +5,7 @@ import CreateGroup from './Pages/__Dev-Test/CreateGroup';
 import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import Reminder from './Pages/Reminders/Reminders';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import List from './Pages/Lists/List';
 test('renders the correct initial DOM', () => {
   const view = render(<Todo />);
 
