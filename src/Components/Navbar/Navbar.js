@@ -22,7 +22,7 @@ const Navbar = (props) => {
 
 		const data = await response.json();
 		if (data.status === 'ok') {
-			setUser(data.name);
+			setUser(data.user.name);
 		} else {
 			console.log(data.error);
 		}
