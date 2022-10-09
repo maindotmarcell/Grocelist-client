@@ -35,3 +35,10 @@ test('render the correct intial DOM for adding new users to groups', () => {
   expect(groupInputlEl.getAttribute('value')).toBe('');
   expect(userInputEl.getAttribute('value')).toBe('');
 });
+
+//Test for dashboard management page
+test('render the correct intial DOM for dashboard', () => {
+  const view = render(<Dashboard />);
+  const groupInputlEl = view.getByTestId('todoContainer');
+  expect(groupInputlEl.getAttribute('value')).toBe(null);
+});
