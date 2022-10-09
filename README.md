@@ -8,7 +8,7 @@ The backend is built with mongodb express and nodejs
 
 ## Feature Management
 
-#Add Personal Todo - Assigned to Asadul Islam Symon
+### Add Personal Todo - Assigned to Asadul Islam Symon
 Users can add and delete  in personal todo and view them on the dahsboard
 
 
@@ -42,3 +42,13 @@ npm run start
 ```
 to run the program on your local Machine
 
+## Running Backend locally
+
+Make sure to pull the main branch of our server application repository from: [https://github.com/maindotmarcell/Grocelist-Server](https://github.com/maindotmarcell/Grocelist-Server) 
+Make sure you have all the dependencies and Mongo DB installed on your local machine.
+And in a separate terminal run:
+```
+npm run dev
+```
+
+By running the two (back-end and front-end) applications simoultaneously, you will be able to use the above-mentioned features.
