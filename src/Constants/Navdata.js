@@ -7,9 +7,9 @@ import { IoIosList } from 'react-icons/io';
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiOutlineHome />,
+    title: 'Dashboard',
+    path: '/dashboard',
+    icon: <BiNote />,
   },
   {
     title: 'Personal Todos',
@@ -25,11 +25,6 @@ export const SidebarData = [
     title: 'Reminders',
     path: '/reminders',
     icon: <BsAlarm />,
-  },
-  {
-    title: 'Dashboard',
-    path: '/dashboard',
-    icon: <BiNote />,
   },
   {
     title: 'List',

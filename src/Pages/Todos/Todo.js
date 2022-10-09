@@ -1,9 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TodoStyle.module.css';
 import { IoAddCircleOutline } from 'react-icons/io5';
+import axios from 'axios';
 
 const Todo = () => {
   const year = new Date().getFullYear();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    axios
+      .get('http://localhost:1337/api/current-user', {
+        headers: {
+          'x-access-token': token,
+        },
+      })
+      .then((response) => setUser(response.data.user._id))
+      .then(() =>
+        axios
+          .get(`http://localhost:1337/api/personaltodos/:${user}`)
+          .then((response) => console.log(response))
+      );
+  }, [user]);
 
   const month = new Date().toLocaleString('en-US', {
     month: 'long',
@@ -14,9 +33,16 @@ const Todo = () => {
   const [todoitems, setTodoItems] = useState('');
   const [date, setDate] = useState(currentDate);
   const [todos, setTodos] = useState([]);
-  const handleTodo = () => {
+  const handleTodo = async () => {
     console.log(todos);
+
     setTodos((prevState) => [...prevState, { todoitems, date }]);
+
+    axios.post('http://localhost:1337/api/personaltodos', {
+      user,
+      todo: todoitems,
+      date,
+    });
   };
   const handleChange = (e) => {
     setTodoItems(e.target.value);

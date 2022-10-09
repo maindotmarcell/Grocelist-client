@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import styles from './Reminder.module.css';
+
 const Reminder = () => {
   let today = new Date();
   let dd = today.getDate();
@@ -14,10 +16,26 @@ const Reminder = () => {
     mm = '0' + mm;
   }
   today = mm + '-' + dd + '-' + yyyy;
-
   const [reminders, setReminders] = useState([]);
   const [reminderItems, setReminderItems] = useState('');
   const [date, setDate] = useState(today);
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    axios
+      .get('http://localhost:1337/api/current-user', {
+        headers: {
+          'x-access-token': token,
+        },
+      })
+      .then((response) => setUser(response.data.user._id))
+      .then(() =>
+        axios
+          .get(`http://localhost:1337/api/personaltodos/:${user}`)
+          .then((response) => console.log(response))
+      );
+  }, [user]);
 
   const handleItems = (e) => {
     setReminderItems(e.target.value);
@@ -27,6 +45,12 @@ const Reminder = () => {
   };
   const handleChange = () => {
     setReminders((prevState) => [...prevState, { reminderItems, date }]);
+
+    axios.post('http://localhost:1337/api/reminders', {
+      user,
+      date,
+      reminders: reminderItems,
+    });
   };
 
   return (
