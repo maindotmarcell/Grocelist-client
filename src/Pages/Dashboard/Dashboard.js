@@ -26,7 +26,7 @@ const Dashboard = () => {
         return response;
       })
       .then(() =>
-        //After the first requrest is fulfilled get the todos for that user
+        //After the first request is fulfilled get the todos for that user
         axios
           .get(`http://localhost:1337/api/personaltodos/${user}`)
           .then((response) => {
@@ -39,11 +39,11 @@ const Dashboard = () => {
     console.log(notes);
     setNotesC((prevState) => [...prevState, { dashnotes }]);
   };
-
+  //set the dashnotes to the value from the input field
   const handleChange = (e) => {
     setDashNotes(e.target.value);
   };
-
+  //takes care of the delete function but not yet implemented
   const handleDelete = () => {
     console.log(dashnotes);
     delete Dashboard.dashnotes;
@@ -60,12 +60,12 @@ const Dashboard = () => {
           placeholder='Enter Note Text'
           onChange={handleChange}
         />
-
         <button className={styles.handleButton} onClick={handleDash}>
           <IoAddCircleOutline />
         </button>
       </div>
       <div>
+        {/**for any dashboard notes added, show them to the user */}
         {notesC?.map((i) => {
           return (
             <div className={styles.noteContent}>
@@ -82,6 +82,7 @@ const Dashboard = () => {
       <div className={styles.note}>
         <h2>Personal Todos</h2>
         <div>
+          {/**for any todos added, show them to the user */}
           {notes.length !== 0 ? (
             notes?.map((i) => {
               return (
@@ -105,10 +106,11 @@ const Dashboard = () => {
       <div className={styles.note}>
         <h2>Reminders</h2>
         <div>
+          {/**for any reminders added, show them to the user */}
           {notes.length !== 0 ? (
             notes?.map((i) => {
               return (
-                <div className={styles.noteContent}>
+                <div className={styles.noteContent}> 
                   {i?.todo}
                   ✏︎ {i?.date}
                   <button
