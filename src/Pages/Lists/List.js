@@ -6,6 +6,7 @@ export default function App() {
   const [newItem, setNewItem] = useState('');
 
   const updateList = () => {
+    // get the items and assing to the grocery list 
     const newList = [...groceryList, newItem];
     setGroceryList(newList);
   };

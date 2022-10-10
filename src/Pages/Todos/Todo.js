@@ -8,8 +8,10 @@ const Todo = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
+    // get token the from the local storage
     const token = localStorage.getItem('token');
     console.log(token);
+    //retrieve use based on the token
     axios
       .get('http://localhost:1337/api/current-user', {
         headers: {
@@ -18,6 +20,7 @@ const Todo = () => {
       })
       .then((response) => setUser(response.data.user._id))
       .then(() =>
+        //Make an api request if the user has the token
         axios
           .get(`http://localhost:1337/api/personaltodos/:${user}`)
           .then((response) => console.log(response))
@@ -37,6 +40,8 @@ const Todo = () => {
     console.log(todos);
 
     setTodos((prevState) => [...prevState, { todoitems, date }]);
+    //On button Click send the data to the user.
+    // send the data to the backend based on the current user
 
     axios.post('http://localhost:1337/api/personaltodos', {
       user,
@@ -45,9 +50,11 @@ const Todo = () => {
     });
   };
   const handleChange = (e) => {
+    //set the todoItems to the value from the input field
     setTodoItems(e.target.value);
   };
   const handleDate = (e) => {
+    //set the date to the curernt value as the user selects
     setDate(e.target.value);
   };
   return (
@@ -78,6 +85,7 @@ const Todo = () => {
             </button>
           </div>
           <div className={styles.todoListContainer}>
+            {/*if there are any todos show it to the user*/}
             {todos.map((i) => {
               return (
                 <div className={styles.todoList}>
