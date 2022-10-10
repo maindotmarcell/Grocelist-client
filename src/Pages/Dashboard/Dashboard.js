@@ -7,12 +7,14 @@ import axios from 'axios';
 const Dashboard = () => {
   const [dashnotes, setDashNotes] = useState('');
   const [notes, setNotes] = useState([]);
+  const [notesC, setNotesC] = useState([]);
   const [reminders, setReminders] = useState([]);
   const [user, setUser] = useState();
 
   useEffect(() => {
+    //Get the token from localstorage
     const token = localStorage.getItem('token');
-
+    //Retrieve the user based on the token
     axios
       .get('http://localhost:1337/api/current-user', {
         headers: {
@@ -24,6 +26,7 @@ const Dashboard = () => {
         return response;
       })
       .then(() =>
+        //After the first requrest is fulfilled get the todos for that user
         axios
           .get(`http://localhost:1337/api/personaltodos/${user}`)
           .then((response) => {
@@ -34,7 +37,7 @@ const Dashboard = () => {
 
   const handleDash = () => {
     console.log(notes);
-    setNotes((prevState) => [...prevState, { dashnotes }]);
+    setNotesC((prevState) => [...prevState, { dashnotes }]);
   };
 
   const handleChange = (e) => {
@@ -49,6 +52,32 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <h1>General Dashboard</h1>
+      <div className={styles.note}>
+        <input
+          className={styles.input}
+          type='text'
+          value={dashnotes}
+          placeholder='Enter Note Text'
+          onChange={handleChange}
+        />
+
+        <button className={styles.handleButton} onClick={handleDash}>
+          <IoAddCircleOutline />
+        </button>
+      </div>
+      <div>
+        {notesC?.map((i) => {
+          return (
+            <div className={styles.noteContent}>
+              {i?.dashtitles}
+              ✏︎ {i?.dashnotes}
+              <button className={styles.handleDelete} onClick={handleDelete}>
+                <IoRemoveCircleOutline />
+              </button>
+            </div>
+          );
+        })}
+      </div>
 
       <div className={styles.note}>
         <h2>Personal Todos</h2>
