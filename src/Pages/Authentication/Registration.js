@@ -7,6 +7,7 @@ function Registration() {
 	const [password, setPassword] = useState('');
 
 
+	// asynchronous call to submit entered information
     const registerUser = async (event) => {
         event.preventDefault()
         const response = await fetch('http://localhost:1337/api/register', {
@@ -21,6 +22,7 @@ function Registration() {
             })
         })
 
+		// setting jwt to keep user logged in
         const data = await response.json()
 		if (data.user) {
 			localStorage.setItem('token', data.user)
@@ -33,6 +35,7 @@ function Registration() {
 
     }
 
+	// rendering page with register form
 	return (
 		<div>
 			<h1>Register</h1>

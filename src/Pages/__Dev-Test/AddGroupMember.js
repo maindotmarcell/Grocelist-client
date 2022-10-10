@@ -4,6 +4,7 @@ function AddGroupMember() {
   const [userEmail, setUserEmail] = useState();
   const [groupID, setGroupID] = useState('');
 
+  // api call to add member to page
   const addMember = async () => {
     const response = await fetch('http://localhost:1337/api/add-group-member', {
       method: 'POST',
@@ -21,6 +22,7 @@ function AddGroupMember() {
     console.log(data);
   };
 
+  // rendering page
   return (
     <div>
       <form onSubmit={addMember}>

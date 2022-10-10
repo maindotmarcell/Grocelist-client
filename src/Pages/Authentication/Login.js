@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// login function
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // asynchronous api call to pass entered information to backend
   const loginUser = async (event) => {
     event.preventDefault();
     const response = await fetch('http://localhost:1337/api/login', {
@@ -18,6 +20,7 @@ function Login() {
       }),
     });
 
+    // setting jwt so we can keep the user logged in
     const data = await response.json();
     if (data.user) {
       localStorage.setItem('token', data.user);
@@ -28,6 +31,8 @@ function Login() {
     }
     console.log(data);
   };
+
+  // render page with form
   return (
     <div>
       <h1>Login</h1>

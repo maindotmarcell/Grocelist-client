@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function ExistingGroups() {
 	const [groups, setGroups] = useState([]);
 
+	// API call to fetch group members
 	const getAllGroups = async () => {
 		const response = await fetch('http://localhost:1337/api/get-all-groups', {
 			method: 'GET',
@@ -19,10 +20,12 @@ function ExistingGroups() {
 		}
 	};
 
+	// useEffect to trigger group getting function on page load
 	useEffect(() => {
 		getAllGroups();
 	}, []);
 
+	// rendering pages (conditional to handle if there aren't any)
 	if (groups.length > 0) {
 		return (
 			<div>

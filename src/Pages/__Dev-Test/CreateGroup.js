@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function CreateGroup() {
   const [groupName, setGroupName] = useState();
 
+  // API call that creates group
   const createGroup = async (event) => {
     event.preventDefault();
     const response = await fetch('http://localhost:1337/api/create-group', {
@@ -21,6 +22,7 @@ function CreateGroup() {
     console.log(data);
   };
 
+  // rendering page
   return (
     <div>
       <form onSubmit={createGroup}>
