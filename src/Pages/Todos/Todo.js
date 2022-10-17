@@ -13,7 +13,7 @@ const Todo = () => {
     console.log(token);
     //retrieve use based on the token
     axios
-      .get('http://localhost:1337/api/current-user', {
+      .get('http://localhost:1337/api/authentication/current-user', {
         headers: {
           'x-access-token': token,
         },

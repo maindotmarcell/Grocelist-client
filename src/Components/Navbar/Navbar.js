@@ -14,7 +14,7 @@ const Navbar = (props) => {
 	}
 
 	async function getLoggedInUser() {
-		const response = await fetch('http://localhost:1337/api/current-user', {
+		const response = await fetch('http://localhost:1337/api/authentication/current-user', {
 			headers: {
 				'x-access-token': localStorage.getItem('token'),
 			},

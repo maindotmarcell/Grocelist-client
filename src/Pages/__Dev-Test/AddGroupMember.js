@@ -6,7 +6,7 @@ function AddGroupMember() {
 
   // api call to add member to page
   const addMember = async () => {
-    const response = await fetch('http://localhost:1337/api/add-group-member', {
+    const response = await fetch('http://localhost:1337/api/groups/add-group-member', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

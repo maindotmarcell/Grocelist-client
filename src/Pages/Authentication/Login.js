@@ -9,7 +9,7 @@ function Login() {
   // asynchronous api call to pass entered information to backend
   const loginUser = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://localhost:1337/api/login', {
+    const response = await fetch('http://localhost:1337/api/authentication/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
