@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import UserContext from '../../context/UserContext';
 
 function Registration() {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const { user, storeUser } = useContext(UserContext);
+	const navigate = useNavigate();
+
 	// asynchronous call to submit entered information
 	const registerUser = async (event) => {
 		event.preventDefault();
-		const response = await fetch('http://localhost:1337/api/authentication/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				name,
-				email,
-				password,
-			}),
-		});
+		const response = await fetch(
+			'http://localhost:1337/api/authentication/register',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					name,
+					email,
+					password,
+				}),
+			}
+		);
 
 		// setting jwt to keep user logged in
 		const data = await response.json();
 		if (data.user) {
-			localStorage.setItem('token', data.user);
+			localStorage.setItem('token', data.user.token);
+			storeUser(data.user);
 			alert('Registration successful');
-			window.location.href = '/';
+			navigate('/');
 		} else {
 			alert('Please check the information you have provided');
 		}

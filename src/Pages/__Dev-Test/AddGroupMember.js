@@ -5,7 +5,8 @@ function AddGroupMember() {
   const [groupID, setGroupID] = useState('');
 
   // api call to add member to page
-  const addMember = async () => {
+  const addMember = async (event) => {
+    event.preventDefault()
     const response = await fetch('http://localhost:1337/api/groups/add-group-member', {
       method: 'POST',
       headers: {

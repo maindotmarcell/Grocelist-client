@@ -29,7 +29,7 @@ const Reminder = () => {
           'x-access-token': token,
         },
       })
-      .then((response) => setUser(response.data.user._id))
+      .then((response) => setUser(response.data.user.id))
       .then(() =>
         axios
           .get(`http://localhost:1337/api/personaltodos/:${user}`)

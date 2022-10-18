@@ -16,13 +16,13 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     //Retrieve the user based on the token
     axios
-      .get('http://localhost:1337/api/current-user', {
+      .get('http://localhost:1337/api/authentication/current-user', {
         headers: {
           'x-access-token': token,
         },
       })
       .then((response) => {
-        setUser(response.data.user._id);
+        setUser(response.data.user.id);
         return response;
       })
       .then(() =>

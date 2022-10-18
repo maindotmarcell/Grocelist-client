@@ -1,38 +1,49 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import classes from './Navbar.module.css';
 import { MdPermIdentity } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SidebarData } from '../../Constants/Navdata';
+import UserContext from '../../context/UserContext';
 
 const Navbar = (props) => {
-	const [user, setUser] = useState();
+	// const [user, setUser] = useState();
+	const { user, storeUser } = useContext(UserContext);
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		getLoggedInUser();
+	}, []);
 
 	function logout() {
 		localStorage.removeItem('token');
+		storeUser(null);
 		window.location.href = '/login';
 	}
 
 	async function getLoggedInUser() {
-		const response = await fetch('http://localhost:1337/api/authentication/current-user', {
-			headers: {
-				'x-access-token': localStorage.getItem('token'),
-			},
-		});
+		const response = await fetch(
+			'http://localhost:1337/api/authentication/current-user',
+			{
+				headers: {
+					'x-access-token': localStorage.getItem('token'),
+				},
+			}
+		);
 
 		const data = await response.json();
 		if (data.status === 'ok') {
-			setUser(data.user.name);
+			storeUser(data.user);
 		} else {
 			console.log(data.error);
 		}
 	}
-	getLoggedInUser();
 	// console.log(props);
 
 	const showSidebar = () => {
 		props?.data.setsideToggle(!props.data.sideToggle);
 	};
+
 	return (
 		<div>
 			<div className={classes.navMenu}>
@@ -40,7 +51,7 @@ const Navbar = (props) => {
 				<h1>Grocelist</h1>
 				<div className={classes.nav_end}>
 					<MdPermIdentity className={classes.ProfileIcon} />
-					<h3>{user}</h3>
+					<h3>{user.name}</h3>
 				</div>
 			</div>
 			<nav

@@ -18,7 +18,7 @@ const Todo = () => {
           'x-access-token': token,
         },
       })
-      .then((response) => setUser(response.data.user._id))
+      .then((response) => setUser(response.data.user.id))
       .then(() =>
         //Make an api request if the user has the token
         axios
