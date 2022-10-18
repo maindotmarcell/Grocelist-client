@@ -13,6 +13,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import CreateGroup from './Pages/__Dev-Test/CreateGroup';
 import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import ExistingGroups from './Pages/__Dev-Test/ExistingGroups';
+import Groups from './Pages/Groups/Groups';
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 							<Route path="/create-group" element={<CreateGroup />} />
 							<Route path="/existing-groups" element={<ExistingGroups />} />
 							<Route path="/add-group-member" element={<AddGroupMember />} />
+							<Route path="/groups" element={<Groups />} />
 						</Route>
 						<Route path="/register" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
