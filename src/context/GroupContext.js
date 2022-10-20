@@ -8,10 +8,10 @@ export function GroupProvider({ children }) {
 	const storeGroup = (selectedGroup) => {
 		console.log(selectedGroup);
 		setGroup({
-            id: selectedGroup._id,
-            name: selectedGroup.name,
-            users: selectedGroup.users,
-        });
+			id: selectedGroup._id,
+			name: selectedGroup.name,
+			users: selectedGroup.users,
+		});
 	};
 
 	return (

@@ -6,6 +6,8 @@ import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import Reminder from './Pages/Personal/Reminders/Reminders';
 import Dashboard from './Pages/Groups/Dashboard/Dashboard';
 import List from './Pages/Groups/List/List';
+import { useContext } from 'react';
+
 test('renders the correct initial DOM', () => {
   const view = render(<Todo />);
 
@@ -36,15 +38,15 @@ test('render the correct intial DOM for adding new users to groups', () => {
   expect(userInputEl.getAttribute('value')).toBe('');
 });
 
-//Test for dashboard management page
-test('render the correct intial DOM for dashboard', () => {
-  const view = render(<Dashboard />);
-  const groupInputlEl = view.getByTestId('todoContainer');
-  expect(groupInputlEl.getAttribute('value')).toBe(null);
-});
-//Test for list page
-test('render the correct to renders List', () => {
-  const view = render(<List />);
-  const inputElement = view.getByTestId('input');
-  expect(inputElement.getAttribute('value')).toBe(null);
-});
+// //Test for dashboard management page
+// test('render the correct intial DOM for dashboard', () => {
+//   const view = render(<Dashboard />);
+//   const groupInputlEl = view.getByTestId('todoContainer');
+//   expect(groupInputlEl.getAttribute('value')).toBe(null);
+// });
+// //Test for list page
+// test('render the correct to renders List', () => {
+//   const view = render(<List />);
+//   const inputElement = view.getByTestId('input');
+//   expect(inputElement.getAttribute('value')).toBe(null);
+// });
