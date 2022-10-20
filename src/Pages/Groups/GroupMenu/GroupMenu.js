@@ -13,7 +13,7 @@ function GroupMenu() {
 			<div className={styles.card}>
 				<h3>Grocery List</h3>
 				<p>Number of items: {1}</p>
-				<button onClick={() => navigate('/lists')}>View Grocery List</button>
+				<button onClick={() => navigate('/list')}>View Grocery List</button>
 			</div>
 			<div className={styles.card}>
 				<h3>Group Dashboard</h3>

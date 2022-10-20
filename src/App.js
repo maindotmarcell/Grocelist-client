@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import Navbar from '../src/Components/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
-import Todo from './Pages/Todos/Todo';
+import Todo from './Pages/Personal/Todo/Todo';
 import Home from './Pages/Home/Home';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import List from './Pages/Lists/List';
-import Reminder from './Pages/Reminders/Reminders';
+import Dashboard from './Pages/Groups/Dashboard/Dashboard';
+import List from './Pages/Groups/List/List';
+import Reminder from './Pages/Personal/Reminders/Reminders';
 import Registration from './Pages/Authentication/Registration';
 import Login from './Pages/Authentication/Login';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -31,7 +31,7 @@ function App() {
 								<Route path="/" element={<Home />} />
 								<Route path="/dashboard" element={<Dashboard />} />
 								<Route path="/todos" element={<Todo />} />
-								<Route path="/lists" element={<List />} />
+								<Route path="/list" element={<List />} />
 								<Route path="/reminders" element={<Reminder />} />
 								<Route path="/create-group" element={<CreateGroup />} />
 								<Route path="/existing-groups" element={<ExistingGroups />} />
