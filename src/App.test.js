@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Todo from './Pages/Todos/Todo';
+import Todo from './Pages/Personal/Todo/Todo';
 import CreateGroup from './Pages/__Dev-Test/CreateGroup';
 import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
-import Reminder from './Pages/Reminders/Reminders';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import List from './Pages/Lists/List';
+import Reminder from './Pages/Personal/Reminders/Reminders';
+import Dashboard from './Pages/Groups/Dashboard/Dashboard';
+import List from './Pages/Groups/List/List';
 test('renders the correct initial DOM', () => {
   const view = render(<Todo />);
 
