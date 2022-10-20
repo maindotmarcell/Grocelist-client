@@ -13,32 +13,37 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import CreateGroup from './Pages/__Dev-Test/CreateGroup';
 import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import ExistingGroups from './Pages/__Dev-Test/ExistingGroups';
-import Groups from './Pages/Groups/Groups';
+import Groups from './Pages/Groups/Groups/Groups';
+import GroupMenu from './Pages/Groups/GroupMenu/GroupMenu';
 import { UserProvider } from './context/UserContext';
+import { GroupProvider } from './context/GroupContext';
 
 function App() {
 	const [sideToggle, setsideToggle] = useState(true);
 	return (
 		<div className="App">
 			<UserProvider>
-				<Navbar className="nav" data={{ sideToggle, setsideToggle }} />
-				<div className="main_content">
-					<Routes>
-						<Route element={<PrivateRoute />}>
-							<Route path="/" element={<Home />} />
-							<Route path="/dashboard" element={<Dashboard />} />
-							<Route path="/todos" element={<Todo />} />
-							<Route path="/lists" element={<List />} />
-							<Route path="/reminders" element={<Reminder />} />
-							<Route path="/create-group" element={<CreateGroup />} />
-							<Route path="/existing-groups" element={<ExistingGroups />} />
-							<Route path="/add-group-member" element={<AddGroupMember />} />
-							<Route path="/groups" element={<Groups />} />
-						</Route>
-						<Route path="/register" element={<Registration />} />
-						<Route path="/login" element={<Login />} />
-					</Routes>
-				</div>
+				<GroupProvider>
+					<Navbar className="nav" data={{ sideToggle, setsideToggle }} />
+					<div className="main_content">
+						<Routes>
+							<Route element={<PrivateRoute />}>
+								<Route path="/" element={<Home />} />
+								<Route path="/dashboard" element={<Dashboard />} />
+								<Route path="/todos" element={<Todo />} />
+								<Route path="/lists" element={<List />} />
+								<Route path="/reminders" element={<Reminder />} />
+								<Route path="/create-group" element={<CreateGroup />} />
+								<Route path="/existing-groups" element={<ExistingGroups />} />
+								<Route path="/add-group-member" element={<AddGroupMember />} />
+								<Route path="/groups" element={<Groups />} />
+								<Route path="/groups/menu" element={<GroupMenu />} />
+							</Route>
+							<Route path="/register" element={<Registration />} />
+							<Route path="/login" element={<Login />} />
+						</Routes>
+					</div>
+				</GroupProvider>
 			</UserProvider>
 		</div>
 	);
