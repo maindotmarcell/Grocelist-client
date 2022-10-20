@@ -29,9 +29,9 @@ function App() {
 						<Routes>
 							<Route element={<PrivateRoute />}>
 								<Route path="/" element={<Home />} />
-								<Route path="/dashboard" element={<Dashboard />} />
+								<Route path="/groups/menu/dashboard" element={<Dashboard />} />
 								<Route path="/todos" element={<Todo />} />
-								<Route path="/list" element={<List />} />
+								<Route path="/groups/menu/list" element={<List />} />
 								<Route path="/reminders" element={<Reminder />} />
 								<Route path="/create-group" element={<CreateGroup />} />
 								<Route path="/existing-groups" element={<ExistingGroups />} />

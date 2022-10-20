@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import styles from './Dashboard.module.css';
 import { IoAddCircleOutline, IoRemoveCircleOutline } from 'react-icons/io5';
 import axios from 'axios';
+import GroupContext from '../../../context/GroupContext';
 
 const Dashboard = () => {
   const [dashnotes, setDashNotes] = useState('');
@@ -10,6 +11,7 @@ const Dashboard = () => {
   const [notesC, setNotesC] = useState([]);
   const [reminders, setReminders] = useState([]);
   const [user, setUser] = useState();
+  const {group} = useContext(GroupContext);
 
   useEffect(() => {
     //Get the token from localstorage
@@ -51,6 +53,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
+      <h2>{group.name}</h2>
       <h1>General Dashboard</h1>
       <div className={styles.note}>
         <input

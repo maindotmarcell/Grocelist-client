@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import GroupContext from '../../../context/GroupContext';
 
 export default function App() {
   const [toggleForm, setToggleForm] = useState(false);
   const [groceryList, setGroceryList] = useState([]);
   const [newItem, setNewItem] = useState('');
+  const {group} = useContext(GroupContext);
 
   const updateList = () => {
     // get the items and assing to the grocery list 
@@ -13,6 +15,7 @@ export default function App() {
 
   return (
     <div className='Lists'>
+      <h2>{group.name}</h2>
       <h3 data-testid='input'>Make a Grocery List!</h3>
       <div style={{ marginBottom: '10px' }}>
         <button onClick={() => setToggleForm(true)}>Create New List</button>

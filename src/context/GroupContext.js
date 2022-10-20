@@ -7,7 +7,11 @@ export function GroupProvider({ children }) {
 
 	const storeGroup = (selectedGroup) => {
 		console.log(selectedGroup);
-		setGroup(selectedGroup);
+		setGroup({
+            id: selectedGroup._id,
+            name: selectedGroup.name,
+            users: selectedGroup.users,
+        });
 	};
 
 	return (

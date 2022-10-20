@@ -13,12 +13,16 @@ function GroupMenu() {
 			<div className={styles.card}>
 				<h3>Grocery List</h3>
 				<p>Number of items: {1}</p>
-				<button onClick={() => navigate('/list')}>View Grocery List</button>
+				<button onClick={() => navigate('/groups/menu/list')}>
+					View Grocery List
+				</button>
 			</div>
 			<div className={styles.card}>
 				<h3>Group Dashboard</h3>
 				<p>Number of items: {1}</p>
-				<button onClick={() => navigate('/dashboard')}>View Dashboard</button>
+				<button onClick={() => navigate('/groups/menu/dashboard')}>
+					View Dashboard
+				</button>
 			</div>
 		</div>
 	);
