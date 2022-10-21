@@ -9,6 +9,7 @@ function GroupMenu() {
 
 	return (
 		<div>
+			<button onClick={() => navigate(-1)}>Go back</button>
 			<h1>{group.name} spaces:</h1>
 			<div className={styles.card}>
 				<h3>Grocery List</h3>

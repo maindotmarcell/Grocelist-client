@@ -95,13 +95,15 @@ function Groups() {
 							<h3>{group.name}</h3>
 							<p>Members: {group.users.length}</p>
 							<button onClick={() => selectGroup(group)}>Visit Group</button>
-							<button onClick={() => deleteGroup(group._id)}>
-								Delete Group
-							</button>
+							{group.host === user.id && (
+								<button onClick={() => deleteGroup(group._id)}>
+									Delete Group
+								</button>
+							)}
 						</div>
 					);
 				})}
-				<div className={styles.card}>
+				<div className={styles.new_card}>
 					<h3>New Group</h3>
 					{isInput ? (
 						<form onSubmit={createNewGroup}>

@@ -4,6 +4,7 @@ import styles from './Dashboard.module.css';
 import { IoAddCircleOutline, IoRemoveCircleOutline } from 'react-icons/io5';
 import axios from 'axios';
 import GroupContext from '../../../context/GroupContext';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const [dashnotes, setDashNotes] = useState('');
@@ -12,6 +13,7 @@ const Dashboard = () => {
   const [reminders, setReminders] = useState([]);
   const [user, setUser] = useState();
   const {group} = useContext(GroupContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     //Get the token from localstorage
@@ -53,6 +55,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
+			<button onClick={() => navigate(-1)}>Go back</button>
       <h2>{group.name}</h2>
       <h1>General Dashboard</h1>
       <div className={styles.note}>

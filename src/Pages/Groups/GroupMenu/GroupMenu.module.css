@@ -1,16 +1,23 @@
 .home {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-  }
-  .card {
-    padding: 10px;
-    -webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
-    box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
-  }
-  .card h3 {
-    background-color: black;
-    color: white;
-    margin-left: -10px;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.card {
+  padding: 10px;
+  -webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+  box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+  min-width: 200px;
+}
+.card h3 {
+  background-color: black;
+  color: white;
+  margin-left: -10px;
+  text-align: center;
+}
+
+button {
+	padding: 5px;
+  margin: 5px;
+}
