@@ -11,6 +11,7 @@ export function GroupProvider({ children }) {
 			id: selectedGroup._id,
 			name: selectedGroup.name,
 			users: selectedGroup.users,
+			host: selectedGroup.host,
 		});
 	};
 
