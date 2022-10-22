@@ -35,16 +35,16 @@ export const SidebarData = [
 	//   title: 'Groups',
 	//   path: '/groups',
 	// },
-	{
-		title: 'Create Group',
-		path: '/create-group',
-	},
-	{
-		title: 'Existing Groups',
-		path: '/existing-groups',
-	},
-	{
-		title: 'Add Group Member',
-		path: '/add-group-member',
-	},
+	// {
+	// 	title: 'Create Group',
+	// 	path: '/create-group',
+	// },
+	// {
+	// 	title: 'Existing Groups',
+	// 	path: '/existing-groups',
+	// },
+	// {
+	// 	title: 'Add Group Member',
+	// 	path: '/add-group-member',
+	// },
 ];

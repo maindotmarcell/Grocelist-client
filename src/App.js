@@ -15,6 +15,7 @@ import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import ExistingGroups from './Pages/__Dev-Test/ExistingGroups';
 import Groups from './Pages/Groups/Groups/Groups';
 import GroupMenu from './Pages/Groups/GroupMenu/GroupMenu';
+import Invites from './Pages/Invites/Invites';
 import { UserProvider } from './context/UserContext';
 import { GroupProvider } from './context/GroupContext';
 
@@ -38,6 +39,7 @@ function App() {
 								<Route path="/add-group-member" element={<AddGroupMember />} />
 								<Route path="/groups" element={<Groups />} />
 								<Route path="/groups/menu" element={<GroupMenu />} />
+								<Route path="/invites" element={<Invites />} />
 							</Route>
 							<Route path="/register" element={<Registration />} />
 							<Route path="/login" element={<Login />} />

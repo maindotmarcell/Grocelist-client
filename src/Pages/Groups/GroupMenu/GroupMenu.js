@@ -74,6 +74,7 @@ function GroupMenu() {
 						return <li>{member}</li>;
 					})}
 				</ul>
+				<button>Invite New Member</button>
 			</div>
 		</div>
 	);
