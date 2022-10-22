@@ -8,19 +8,19 @@ import Dashboard from './Pages/Groups/Dashboard/Dashboard';
 import List from './Pages/Groups/List/List';
 import { useContext } from 'react';
 
-test('renders the correct initial DOM', () => {
-  const view = render(<Todo />);
+// test('renders the correct initial DOM', () => {
+//   const view = render(<Todo />);
 
-  const inputElement = view.getByTestId('input');
+//   const inputElement = view.getByTestId('input');
 
-  const todos = view.queryAllByTestId('todo');
+//   const todos = view.queryAllByTestId('todo');
 
-  // The input should be blank.
-  expect(inputElement.getAttribute('value')).toBe('');
+//   // The input should be blank.
+//   expect(inputElement.getAttribute('value')).toBe('');
 
-  // There should be 0 todos in the viewument.
-  expect(todos.length).toBe(0);
-});
+//   // There should be 0 todos in the viewument.
+//   expect(todos.length).toBe(0);
+// });
 
 test('render the correct intial DOM for Reminders', () => {
   const view = render(<Reminder />);
