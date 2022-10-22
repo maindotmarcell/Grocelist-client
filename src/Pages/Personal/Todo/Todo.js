@@ -1,32 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from './TodoStyle.module.css';
 import { IoAddCircleOutline } from 'react-icons/io5';
 import axios from 'axios';
+import UserContext from '../../../context/UserContext';
+import { AiFillDelete } from 'react-icons/ai';
 
 const Todo = () => {
   const year = new Date().getFullYear();
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    // get token the from the local storage
-    const token = localStorage.getItem('token');
-    console.log(token);
-    //retrieve use based on the token
+  const { user } = useContext(UserContext);
+  const [item, setItems] = useState([]);
+  const [update, setUpdate] = useState(false);
+  console.log(user);
+  const handleUpdate = (i) => {
     axios
-      .get('http://localhost:1337/api/authentication/current-user', {
-        headers: {
-          'x-access-token': token,
-        },
-      })
-      .then((response) => setUser(response.data.user.id))
-      .then(() =>
-        //Make an api request if the user has the token
-        axios
-          .get(`http://localhost:1337/api/personaltodos/:${user}`)
-          .then((response) => console.log(response))
-      );
-  }, [user]);
+      .patch(`http://localhost:1337/api/personaltodos/${i}`, { status: true })
+      .then((response) => console.log(response));
+    setUpdate(!update);
+  };
 
+  const handleDelete = (i) => {
+    axios
+      .delete(`http://localhost:1337/api/personaltodos/${i}`)
+      .then((response) => console.log(response));
+    setUpdate(!update);
+  };
+  useEffect(() => {
+    //Make an api request if the user has the token
+    axios
+      .get(`http://localhost:1337/api/personaltodos/${user.id}`)
+      .then((response) => setItems(() => [response.data.todos][0]));
+  }, [update]);
+  console.log(item);
   const month = new Date().toLocaleString('en-US', {
     month: 'long',
   });
@@ -36,6 +40,7 @@ const Todo = () => {
   const [todoitems, setTodoItems] = useState('');
   const [date, setDate] = useState(currentDate);
   const [todos, setTodos] = useState([]);
+
   const handleTodo = async () => {
     console.log(todos);
 
@@ -44,10 +49,11 @@ const Todo = () => {
     // send the data to the backend based on the current user
 
     axios.post('http://localhost:1337/api/personaltodos', {
-      user,
+      user: user.id,
       todo: todoitems,
       date,
     });
+    setUpdate(!update);
   };
   const handleChange = (e) => {
     //set the todoItems to the value from the input field
@@ -86,10 +92,26 @@ const Todo = () => {
           </div>
           <div className={styles.todoListContainer}>
             {/*if there are any todos show it to the user*/}
-            {todos.map((i) => {
+            {item.map((i) => {
+              console.log(i);
               return (
                 <div className={styles.todoList}>
-                  ‣ {i.todoitems}--{i.date}
+                  {i.status ? (
+                    <span style={{ textDecoration: 'line-through' }}>
+                      {' '}
+                      ‣ {i.todo}--{i.date}
+                    </span>
+                  ) : (
+                    <div>
+                      {' '}
+                      ‣ {i.todo}--{i.date}{' '}
+                    </div>
+                  )}
+
+                  <button onClick={() => handleUpdate(i._id)}>
+                    Mark As Done
+                  </button>
+                  <AiFillDelete onClick={() => handleDelete(i._id)} />
                 </div>
               );
             })}
