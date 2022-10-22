@@ -4,12 +4,16 @@ import styles from './GroupMenu.module.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Groups from '../Groups/Groups';
+import UserContext from '../../../context/UserContext';
 
 function GroupMenu() {
 	const [members, setMembers] = useState([]);
 	const [listLength, setListLength] = useState([]);
 	const [dashboardLength, setDashboardLength] = useState([]);
+	const [isInput, setIsInput] = useState(false);
+	const [inviteeEmail, setInviteeEmail] = useState();
 	const { group } = useContext(GroupContext);
+	const { user } = useContext(UserContext);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -49,6 +53,26 @@ function GroupMenu() {
 			.catch((err) => console.log(err));
 	}, []);
 
+	const createInvite = async (event) => {
+		event.preventDefault();
+		const response = await axios.post(
+			`http://localhost:1337/api/invites/create-invite`,
+			{
+				group: group.id,
+				inviter: user.id,
+				invitee: inviteeEmail,
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					'x-access-token': localStorage.getItem('token'),
+				},
+			}
+		);
+		console.log(response);
+		setIsInput(false);
+	};
+
 	return (
 		<div>
 			<button onClick={() => navigate(-1)}>Go back</button>
@@ -74,7 +98,20 @@ function GroupMenu() {
 						return <li>{member}</li>;
 					})}
 				</ul>
-				<button>Invite New Member</button>
+				{isInput ? (
+					<form onSubmit={createInvite}>
+						<input
+							type="email"
+							placeholder="Enter Email"
+							value={inviteeEmail}
+							onChange={(e) => setInviteeEmail(e.target.value)}
+						/>
+						<button onClick={() => setIsInput(false)}>Cancel</button>
+						<input type="submit" value="Invite" />
+					</form>
+				) : (
+					<button onClick={() => setIsInput(true)}>Invite New Member</button>
+				)}
 			</div>
 		</div>
 	);

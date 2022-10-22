@@ -26,6 +26,10 @@ export const SidebarData = [
 		path: '/reminders',
 		icon: <BsAlarm />,
 	},
+	{
+		title: 'Invites',
+		path: '/invites',
+	},
 	// {
 	//   title: 'List',
 	//   path: '/lists',
