@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from '../../context/UserContext';
+import UserContext from '../../../context/UserContext';
+import styles from './Login.module.css';
 
 // login function
 function Login() {
@@ -10,23 +11,20 @@ function Login() {
 	const { user, storeUser } = useContext(UserContext);
 	const navigate = useNavigate();
 
-
 	// asynchronous api call to pass entered information to backend
 	const loginUser = async (event) => {
+
 		event.preventDefault();
-		const response = await fetch(
-			'/api/authentication/login',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					email,
-					password,
-				}),
-			}
-		);
+		const response = await fetch('/api/authentication/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email,
+				password,
+			}),
+		});
 
 		// setting jwt so we can keep the user logged in
 		const data = await response.json();
@@ -45,7 +43,7 @@ function Login() {
 
 	// render page with form
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<h1>Login</h1>
 			<form onSubmit={loginUser}>
 				<input
@@ -53,6 +51,7 @@ function Login() {
 					onChange={(e) => setEmail(e.target.value)}
 					type="email"
 					placeholder="Email"
+					className={styles.formInput}
 				/>
 				<br />
 				<input
@@ -60,9 +59,10 @@ function Login() {
 					onChange={(element) => setPassword(element.target.value)}
 					type="password"
 					placeholder="Password"
+					className={styles.formInput}
 				/>
 				<br />
-				<input type="submit" value="Login" />
+				<input type="submit" value="Login" className={styles.submitButton} />
 			</form>
 			<p>
 				Don't have an account yet?{' '}

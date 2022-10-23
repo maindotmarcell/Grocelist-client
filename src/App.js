@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import Navbar from '../src/Components/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
@@ -7,8 +7,8 @@ import Home from './Pages/Home/Home';
 import Dashboard from './Pages/Groups/Dashboard/Dashboard';
 import List from './Pages/Groups/List/List';
 import Reminder from './Pages/Personal/Reminders/Reminders';
-import Registration from './Pages/Authentication/Registration';
-import Login from './Pages/Authentication/Login';
+import Registration from './Pages/Authentication/Registration/Registration';
+import Login from './Pages/Authentication/Login/Login';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import AuthRoute from './PrivateRoute/AuthRoute';
 import CreateGroup from './Pages/__Dev-Test/CreateGroup';
@@ -17,7 +17,7 @@ import ExistingGroups from './Pages/__Dev-Test/ExistingGroups';
 import Groups from './Pages/Groups/Groups/Groups';
 import GroupMenu from './Pages/Groups/GroupMenu/GroupMenu';
 import Invites from './Pages/Invites/Invites';
-import { UserProvider } from './context/UserContext';
+import UserContext, { UserProvider } from './context/UserContext';
 import { GroupProvider } from './context/GroupContext';
 import User from './Pages/Authentication/User';
 

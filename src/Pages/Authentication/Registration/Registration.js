@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from '../../context/UserContext';
+import UserContext from '../../../context/UserContext';
+import styles from './Registration.module.css';
 
 function Registration() {
 	const [name, setName] = useState('');
@@ -13,20 +14,19 @@ function Registration() {
 	// asynchronous call to submit entered information
 	const registerUser = async (event) => {
 		event.preventDefault();
-		const response = await fetch(
-			'/api/authentication/register',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					name,
-					email,
-					password,
-				}),
-			}
-		);
+		if (password.length < 6) alert('Password must be at least 6 characters');
+		if (name.length < 3) alert('Username must be at least 3 characters');
+		const response = await fetch('/api/authentication/register', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				name,
+				email,
+				password,
+			}),
+		});
 
 		// setting jwt to keep user logged in
 		const data = await response.json();
@@ -43,7 +43,7 @@ function Registration() {
 
 	// rendering page with register form
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<h1>Register</h1>
 			<form onSubmit={registerUser}>
 				<input
@@ -51,6 +51,7 @@ function Registration() {
 					onChange={(e) => setName(e.target.value)}
 					type="text"
 					placeholder="Name"
+					className={styles.formInput}
 				/>
 				<br />
 				<input
@@ -58,6 +59,7 @@ function Registration() {
 					onChange={(e) => setEmail(e.target.value)}
 					type="email"
 					placeholder="Email"
+					className={styles.formInput}
 				/>
 				<br />
 				<input
@@ -65,9 +67,10 @@ function Registration() {
 					onChange={(element) => setPassword(element.target.value)}
 					type="password"
 					placeholder="Password"
+					className={styles.formInput}
 				/>
 				<br />
-				<input type="submit" value="Register" />
+				<input type="submit" value="Register" className={styles.submitButton} />
 			</form>
 			<p>
 				Already have an account?{' '}
