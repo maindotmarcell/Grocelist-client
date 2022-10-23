@@ -17,7 +17,7 @@ function Registration() {
 		if (password.length < 6) alert('Password must be at least 6 characters');
 		if (name.length < 3) alert('Username must be at least 3 characters');
 		try {
-			const response = await fetch('/api/authentication/register', {
+			const response = await fetch('https://grocelist-server.herokuapp.com/api/authentication/register', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

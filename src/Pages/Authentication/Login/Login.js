@@ -15,7 +15,7 @@ function Login() {
 	const loginUser = async (event) => {
 		try {
 			event.preventDefault();
-			const response = await fetch('/api/authentication/login', {
+			const response = await fetch('https://grocelist-server.herokuapp.com/api/authentication/login', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

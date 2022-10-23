@@ -8,7 +8,7 @@ function AddGroupMember() {
 	const addMember = async (event) => {
 		event.preventDefault();
 		try {
-			const response = await fetch('/api/groups/add-group-member', {
+			const response = await fetch('https://grocelist-server.herokuapp.com/api/groups/add-group-member', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

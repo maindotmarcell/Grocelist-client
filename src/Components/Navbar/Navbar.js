@@ -22,7 +22,7 @@ const Navbar = (props) => {
 	}
 
 	async function getLoggedInUser() {
-		const response = await fetch('/api/authentication/current-user', {
+		const response = await fetch('https://grocelist-server.herokuapp.com/api/authentication/current-user', {
 			headers: {
 				'x-access-token': localStorage.getItem('token'),
 			},
