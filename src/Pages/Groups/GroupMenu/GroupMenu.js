@@ -18,15 +18,7 @@ function GroupMenu() {
 
 	useEffect(() => {
 		// request to get group members
-		axios
-			.get(`http://localhost:1337/api/groups/get-members/${group.id}`, {
-				headers: {
-					'Content-Type': 'application/json',
-					'x-access-token': localStorage.getItem('token'),
-				},
-			})
-			.then((response) => setMembers(response.data.users))
-			.catch((err) => console.log(err));
+		getMembers();
 
 		// request to get group grocery list
 		axios
@@ -53,6 +45,18 @@ function GroupMenu() {
 			.catch((err) => console.log(err));
 	}, []);
 
+	const getMembers = () => {
+		axios
+			.get(`http://localhost:1337/api/groups/get-members/${group.id}`, {
+				headers: {
+					'Content-Type': 'application/json',
+					'x-access-token': localStorage.getItem('token'),
+				},
+			})
+			.then((response) => setMembers(response.data.users))
+			.catch((err) => console.log(err));
+	};
+
 	const createInvite = async (event) => {
 		event.preventDefault();
 		const response = await axios.post(
@@ -71,6 +75,24 @@ function GroupMenu() {
 		);
 		console.log(response);
 		setIsInput(false);
+	};
+
+	const removeMember = async (userID) => {
+		try {
+			const response = await axios.delete(
+				`http://localhost:1337/api/groups/remove-member?user=${userID}&group=${group.id}`,
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						'x-access-token': localStorage.getItem('token'),
+					},
+				}
+			);
+			console.log(response);
+			getMembers();
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	return (
@@ -95,7 +117,16 @@ function GroupMenu() {
 				<h3>Members</h3>
 				<ul>
 					{members.map((member) => {
-						return <li>{member}</li>;
+						return (
+							<div className={styles.member}>
+								<li>{member.name}</li>
+								{group.host === user.id && group.host !== member.id && (
+									<button onClick={() => removeMember(member.id)}>
+										Remove Member
+									</button>
+								)}
+							</div>
+						);
 					})}
 				</ul>
 				{isInput ? (
