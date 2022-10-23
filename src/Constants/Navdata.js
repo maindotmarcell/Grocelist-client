@@ -1,7 +1,7 @@
 import React from 'react';
 //import { FaCartArrowDown } from 'react-icons/fa';
 import { AiOutlineHome } from 'react-icons/ai';
-import { BiGroup, BiNote } from 'react-icons/bi';
+import { BiGroup, BiNote, BiEnvelope } from 'react-icons/bi';
 import { /*BsFillCalendarDayFill,*/ BsAlarm } from 'react-icons/bs';
 import { IoIosList } from 'react-icons/io';
 
@@ -17,6 +17,11 @@ export const SidebarData = [
 		icon: <BiGroup />,
 	},
 	{
+		title: 'Invites',
+		path: '/invites',
+		icon: <BiEnvelope />
+	},
+	{
 		title: 'Personal Todos',
 		path: '/todos',
 		icon: <AiOutlineHome />,
@@ -25,10 +30,6 @@ export const SidebarData = [
 		title: 'Reminders',
 		path: '/reminders',
 		icon: <BsAlarm />,
-	},
-	{
-		title: 'Invites',
-		path: '/invites',
 	},
 	// {
 	//   title: 'List',

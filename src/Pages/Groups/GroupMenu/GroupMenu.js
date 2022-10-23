@@ -22,7 +22,7 @@ function GroupMenu() {
 
 		// request to get group grocery list
 		axios
-			.get(`http://localhost:1337/api/groups/get-list/${group.id}`, {
+			.get(`/api/groups/get-list/${group.id}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					'x-access-token': localStorage.getItem('token'),
@@ -33,7 +33,7 @@ function GroupMenu() {
 
 		// request to get group dashboard
 		axios
-			.get(`http://localhost:1337/api/groups/get-dashboard/${group.id}`, {
+			.get(`/api/groups/get-dashboard/${group.id}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					'x-access-token': localStorage.getItem('token'),
@@ -47,7 +47,7 @@ function GroupMenu() {
 
 	const getMembers = () => {
 		axios
-			.get(`http://localhost:1337/api/groups/get-members/${group.id}`, {
+			.get(`/api/groups/get-members/${group.id}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					'x-access-token': localStorage.getItem('token'),
@@ -60,7 +60,7 @@ function GroupMenu() {
 	const createInvite = async (event) => {
 		event.preventDefault();
 		const response = await axios.post(
-			`http://localhost:1337/api/invites/create-invite`,
+			`/api/invites/create-invite`,
 			{
 				group: group.id,
 				inviter: user.id,
@@ -80,7 +80,7 @@ function GroupMenu() {
 	const removeMember = async (userID) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:1337/api/groups/remove-member?user=${userID}&group=${group.id}`,
+				`/api/groups/remove-member?user=${userID}&group=${group.id}`,
 				{
 					headers: {
 						'Content-Type': 'application/json',

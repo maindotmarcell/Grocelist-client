@@ -13,21 +13,21 @@ const Todo = () => {
   console.log(user);
   const handleUpdate = (i) => {
     axios
-      .patch(`http://localhost:1337/api/personaltodos/${i}`, { status: true })
+      .patch(`/api/personaltodos/${i}`, { status: true })
       .then((response) => console.log(response));
     setUpdate(!update);
   };
 
   const handleDelete = (i) => {
     axios
-      .delete(`http://localhost:1337/api/personaltodos/${i}`)
+      .delete(`/api/personaltodos/${i}`)
       .then((response) => console.log(response));
     setUpdate(!update);
   };
   useEffect(() => {
     //Make an api request if the user has the token
     axios
-      .get(`http://localhost:1337/api/personaltodos/${user.id}`)
+      .get(`/api/personaltodos/${user.id}`)
       .then((response) => setItems(() => [response.data.todos][0]));
   }, [update]);
   console.log(item);

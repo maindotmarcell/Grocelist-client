@@ -6,7 +6,7 @@ function CreateGroup() {
   // API call that creates group
   const createGroup = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://localhost:1337/api/groups/create-group', {
+    const response = await fetch('/api/groups/create-group', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

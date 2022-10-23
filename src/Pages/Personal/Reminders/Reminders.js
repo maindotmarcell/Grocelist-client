@@ -24,7 +24,7 @@ const Reminder = () => {
     const token = localStorage.getItem('token');
     console.log(token);
     axios
-      .get('http://localhost:1337/api/authentication/current-user', {
+      .get('/api/authentication/current-user', {
         headers: {
           'x-access-token': token,
         },
@@ -32,7 +32,7 @@ const Reminder = () => {
       .then((response) => setUser(response.data.user.id))
       .then(() =>
         axios
-          .get(`http://localhost:1337/api/personaltodos/:${user}`)
+          .get(`/api/personaltodos/:${user}`)
           .then((response) => console.log(response))
       );
   }, [user]);
@@ -46,7 +46,7 @@ const Reminder = () => {
   const handleChange = () => {
     setReminders((prevState) => [...prevState, { reminderItems, date }]);
 
-    axios.post('http://localhost:1337/api/reminders', {
+    axios.post('/api/reminders', {
       user,
       date,
       reminders: reminderItems,

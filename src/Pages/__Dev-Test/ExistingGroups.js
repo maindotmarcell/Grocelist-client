@@ -5,7 +5,7 @@ function ExistingGroups() {
 
 	// API call to fetch group members
 	const getAllGroups = async () => {
-		const response = await fetch('http://localhost:1337/api/groups/get-all-groups', {
+		const response = await fetch('/api/groups/get-all-groups', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
