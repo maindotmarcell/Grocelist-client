@@ -34,7 +34,7 @@ const Reminder = () => {
         axios
           .get(`/api/personaltodos/:${user}`)
           .then((response) => console.log(response))
-      );
+      ).catch((err) => {});
   }, [user]);
 
   const handleItems = (e) => {

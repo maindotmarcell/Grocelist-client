@@ -16,29 +16,33 @@ function Registration() {
 		event.preventDefault();
 		if (password.length < 6) alert('Password must be at least 6 characters');
 		if (name.length < 3) alert('Username must be at least 3 characters');
-		const response = await fetch('/api/authentication/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				name,
-				email,
-				password,
-			}),
-		});
+		try {
+			const response = await fetch('/api/authentication/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					name,
+					email,
+					password,
+				}),
+			});
 
-		// setting jwt to keep user logged in
-		const data = await response.json();
-		if (data.user) {
-			localStorage.setItem('token', data.user.token);
-			storeUser(data.user);
-			alert('Registration successful');
-			navigate('/groups');
-		} else {
-			alert('Please check the information you have provided');
+			// setting jwt to keep user logged in
+			const data = await response.json();
+			if (data.user) {
+				localStorage.setItem('token', data.user.token);
+				storeUser(data.user);
+				alert('Registration successful');
+				navigate('/groups');
+			} else {
+				alert('Please check the information you have provided');
+			}
+			console.log(data);
+		} catch (err) {
+			console.log(err);
 		}
-		console.log(data);
 	};
 
 	// rendering page with register form

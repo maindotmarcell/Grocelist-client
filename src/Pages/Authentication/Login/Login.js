@@ -13,32 +13,35 @@ function Login() {
 
 	// asynchronous api call to pass entered information to backend
 	const loginUser = async (event) => {
+		try {
+			event.preventDefault();
+			const response = await fetch('/api/authentication/login', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email,
+					password,
+				}),
+			});
 
-		event.preventDefault();
-		const response = await fetch('/api/authentication/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				email,
-				password,
-			}),
-		});
-
-		// setting jwt so we can keep the user logged in
-		const data = await response.json();
-		if (data.user) {
-			console.log(data.user);
-			localStorage.setItem('token', data.user.token);
-			storeUser(data.user);
-			alert('Login successful');
-			navigate('/groups');
-		} else {
-			alert('Please check your username and password');
+			// setting jwt so we can keep the user logged in
+			const data = await response.json();
+			if (data.user) {
+				console.log(data.user);
+				localStorage.setItem('token', data.user.token);
+				storeUser(data.user);
+				alert('Login successful');
+				navigate('/groups');
+			} else {
+				alert('Please check your username and password');
+			}
+			console.log(data);
+			console.log(user);
+		} catch (err) {
+			console.log(err);
 		}
-		console.log(data);
-		console.log(user);
 	};
 
 	// render page with form

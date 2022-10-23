@@ -36,7 +36,7 @@ const Dashboard = () => {
           .then((response) => {
             setNotes(() => [response.data.todos]);
           })
-      );
+      ).catch((err) => {});
   }, [user]);
 
   const handleDash = () => {
