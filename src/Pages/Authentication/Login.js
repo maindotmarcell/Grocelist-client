@@ -15,7 +15,7 @@ function Login() {
 	const loginUser = async (event) => {
 		event.preventDefault();
 		const response = await fetch(
-			'http://localhost:1337/api/authentication/login',
+			'/api/authentication/login',
 			{
 				method: 'POST',
 				headers: {

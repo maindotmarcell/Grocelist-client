@@ -23,7 +23,7 @@ const Navbar = (props) => {
 
   async function getLoggedInUser() {
     const response = await fetch(
-      'http://localhost:1337/api/authentication/current-user',
+      '/api/authentication/current-user',
       {
         headers: {
           'x-access-token': localStorage.getItem('token'),
@@ -67,7 +67,7 @@ const Navbar = (props) => {
               <li key={index} className={classes.nav_text}>
                 <Link to={item.path}>
                   {item.icon}
-                  <span>{item.title}</span>
+                  <span> {item.title}</span>
                 </Link>
               </li>
             );

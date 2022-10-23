@@ -16,7 +16,7 @@ function Groups() {
 
 	const getGroups = () => {
 		axios
-			.get(`http://localhost:1337/api/groups/${user.id}`, {
+			.get(`/api/groups/${user.id}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					'x-access-token': localStorage.getItem('token'),
@@ -41,7 +41,7 @@ function Groups() {
 
 		try {
 			const response = await axios.post(
-				'http://localhost:1337/api/groups/create-new',
+				'/api/groups/create-new',
 				{
 					name: newGroupName,
 					user: user.id,
@@ -64,7 +64,7 @@ function Groups() {
 	const deleteGroup = async (id) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:1337/api/groups/delete-group/${id}`,
+				`/api/groups/delete-group/${id}`,
 				{
 					headers: {
 						'Content-Type': 'application/json',

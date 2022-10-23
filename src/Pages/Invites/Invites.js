@@ -14,7 +14,7 @@ const Invites = () => {
 	const getInvites = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:1337/api/invites/get-invites/${user.id}`,
+				`/api/invites/get-invites/${user.id}`,
 				{
 					headers: {
 						'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Invites = () => {
 	const acceptInvite = (inviteID) => {
 		axios
 			.put(
-				`http://localhost:1337/api/invites/accept-invite/${inviteID}`,
+				`/api/invites/accept-invite/${inviteID}`,
 				{},
 				{
 					headers: {
@@ -52,7 +52,7 @@ const Invites = () => {
 	const declineInvite = (inviteID) => {
 		axios
 			.put(
-				`http://localhost:1337/api/invites/decline-invite/${inviteID}`,
+				`/api/invites/decline-invite/${inviteID}`,
 				{},
 				{
 					headers: {

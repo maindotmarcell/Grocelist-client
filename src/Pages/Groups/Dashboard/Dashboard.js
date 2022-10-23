@@ -20,7 +20,7 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     //Retrieve the user based on the token
     axios
-      .get('http://localhost:1337/api/authentication/current-user', {
+      .get('/api/authentication/current-user', {
         headers: {
           'x-access-token': token,
         },
@@ -32,7 +32,7 @@ const Dashboard = () => {
       .then(() =>
         //After the first request is fulfilled get the todos for that user
         axios
-          .get(`http://localhost:1337/api/personaltodos/${user}`)
+          .get(`/api/personaltodos/${user}`)
           .then((response) => {
             setNotes(() => [response.data.todos]);
           })
