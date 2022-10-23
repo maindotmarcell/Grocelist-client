@@ -1,43 +1,56 @@
 .home {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 40px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 40px;
 }
 .card {
-  padding: 10px;
-  -webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
-  box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
-  min-width: 200px;
+	padding: 10px;
+	-webkit-box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+	box-shadow: 10px 6px 12px 2px rgba(0, 0, 0, 0.29);
+	min-width: 200px;
 }
 .card h3 {
-  background-color: black;
-  color: white;
-  margin-left: -10px;
-  text-align: center;
+	background-color: black;
+	color: white;
+	margin-left: -10px;
+	text-align: center;
 }
 
 button {
 	padding: 5px;
-  margin: 5px;
+	margin: 5px;
 }
 
 .member {
-  display: flex;
-  justify-content: space-between;
-  background-color: lightpink;
-  padding: 10px;
-  margin: 5px;
-  min-height: 20px;
+	display: flex;
+	justify-content: space-between;
+	background-color: lightpink;
+	padding: 10px;
+	margin: 5px;
+	min-height: 20px;
 }
 
 .member button {
-  padding: 2px;
-  margin: 0px;
+	padding: 2px;
+	margin: 0px;
 }
 
 ul {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+button,
+.submitButton {
+	padding: 5px;
+	margin: 5px;
+	background-color: white;
+	border: black solid 1px;
+	border-radius: 3px;
+}
+
+button:hover,
+.submitButton:hover {
+	background-color: rgb(243, 234, 234);
 }

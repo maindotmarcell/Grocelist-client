@@ -138,7 +138,11 @@ function GroupMenu() {
 							onChange={(e) => setInviteeEmail(e.target.value)}
 						/>
 						<button onClick={() => setIsInput(false)}>Cancel</button>
-						<input type="submit" value="Invite" />
+						<input
+							type="submit"
+							value="Invite"
+							className={styles.submitButton}
+						/>
 					</form>
 				) : (
 					<button onClick={() => setIsInput(true)}>Invite New Member</button>

@@ -63,15 +63,12 @@ function Groups() {
 
 	const deleteGroup = async (id) => {
 		try {
-			const response = await axios.delete(
-				`/api/groups/delete-group/${id}`,
-				{
-					headers: {
-						'Content-Type': 'application/json',
-						'x-access-token': localStorage.getItem('token'),
-					},
-				}
-			);
+			const response = await axios.delete(`/api/groups/delete-group/${id}`, {
+				headers: {
+					'Content-Type': 'application/json',
+					'x-access-token': localStorage.getItem('token'),
+				},
+			});
 			console.log(response);
 			getGroups();
 		} catch (err) {
@@ -114,7 +111,11 @@ function Groups() {
 								onChange={(e) => setNewGroupName(e.target.value)}
 							/>
 							<button onClick={() => setIsInput(false)}>Cancel</button>
-							<input type="submit" value="Submit" />
+							<input
+								type="submit"
+								value="Submit"
+								className={styles.submitButton}
+							/>
 						</form>
 					) : (
 						<div>
