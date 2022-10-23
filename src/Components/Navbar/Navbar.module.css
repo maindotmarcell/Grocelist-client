@@ -93,3 +93,24 @@
 .ProfileIcon {
 	padding: 10px;
 }
+button,
+.submitButton {
+	padding: 5px;
+	margin: 5px;
+	background-color: white;
+	border: black solid 1px;
+	border-radius: 3px;
+}
+
+button:hover,
+.submitButton:hover {
+	background-color: rgb(243, 234, 234);
+}
+
+.logoutWrapper {
+	text-align: center;
+}
+
+.logoutWrapper button {
+	margin: 10px;
+}
