@@ -90,29 +90,6 @@ test('render the correct intial DOM for groups/main page', () => {
 	);
 }); 
 
-test('render the correct intial DOM for group menu page', () => {
-	const view = render(
-		<Router>
-			<GroupProvider>
-				<UserProvider>
-					<GroupMenu />
-				</UserProvider>
-			</GroupProvider>
-		</Router>
-	);
-});
-
-test('render the correct intial DOM for Invites page', () => {
-	const view = render(
-		<Router>
-			<GroupProvider>
-				<UserProvider>
-					<Invites />
-				</UserProvider>
-			</GroupProvider>
-		</Router>
-	);
-});
 
 //Test for dashboard management page
 test('render the correct intial DOM for dashboard', () => {

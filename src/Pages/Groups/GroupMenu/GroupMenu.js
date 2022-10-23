@@ -59,22 +59,26 @@ function GroupMenu() {
 
 	const createInvite = async (event) => {
 		event.preventDefault();
-		const response = await axios.post(
-			`/api/invites/create-invite`,
-			{
-				group: group.id,
-				inviter: user.id,
-				invitee: inviteeEmail,
-			},
-			{
-				headers: {
-					'Content-Type': 'application/json',
-					'x-access-token': localStorage.getItem('token'),
+		try {
+			const response = await axios.post(
+				`/api/invites/create-invite`,
+				{
+					group: group.id,
+					inviter: user.id,
+					invitee: inviteeEmail,
 				},
-			}
-		);
-		console.log(response);
-		setIsInput(false);
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						'x-access-token': localStorage.getItem('token'),
+					},
+				}
+			);
+			console.log(response);
+			setIsInput(false);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const removeMember = async (userID) => {
