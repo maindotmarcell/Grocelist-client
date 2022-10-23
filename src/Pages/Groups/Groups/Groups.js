@@ -37,7 +37,7 @@ function Groups() {
 
 	const createNewGroup = async (event) => {
 		event.preventDefault();
-		console.log('hi');
+		// console.log('hi');
 
 		try {
 			const response = await axios.post(

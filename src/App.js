@@ -10,6 +10,7 @@ import Reminder from './Pages/Personal/Reminders/Reminders';
 import Registration from './Pages/Authentication/Registration';
 import Login from './Pages/Authentication/Login';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import AuthRoute from './PrivateRoute/AuthRoute';
 import CreateGroup from './Pages/__Dev-Test/CreateGroup';
 import AddGroupMember from './Pages/__Dev-Test/AddGroupMember';
 import ExistingGroups from './Pages/__Dev-Test/ExistingGroups';
@@ -41,8 +42,10 @@ function App() {
 								<Route path="/groups/menu" element={<GroupMenu />} />
 								<Route path="/invites" element={<Invites />} />
 							</Route>
-							<Route path="/register" element={<Registration />} />
-							<Route path="/login" element={<Login />} />
+							<Route element={<AuthRoute />}>
+								<Route path="/register" element={<Registration />} />
+								<Route path="/login" element={<Login />} />
+							</Route>
 						</Routes>
 					</div>
 				</GroupProvider>

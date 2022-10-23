@@ -11,23 +11,27 @@ const Invites = () => {
 		getInvites();
 	}, []);
 
-	const getInvites = () => {
-		axios
-			.get(`http://localhost:1337/api/invites/get-invites/${user.id}`, {
-				headers: {
-					'Content-Type': 'application/json',
-					'x-access-token': localStorage.getItem('token'),
-				},
-			})
-			.then((response) => {
-				console.log(response);
-				setInvites(response.data.invites);
-			})
-			.catch((err) => console.log(err));
+	const getInvites = async () => {
+		try {
+			const response = await axios.get(
+				`http://localhost:1337/api/invites/get-invites/${user.id}`,
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						'x-access-token': localStorage.getItem('token'),
+					},
+				}
+			);
+			console.log(response);
+			setInvites(response.data.invites);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const acceptInvite = (inviteID) => {
-			axios.put(
+		axios
+			.put(
 				`http://localhost:1337/api/invites/accept-invite/${inviteID}`,
 				{},
 				{
@@ -36,14 +40,18 @@ const Invites = () => {
 						'x-access-token': localStorage.getItem('token'),
 					},
 				}
-			).then((response) => {
-                console.log(response);
-                getInvites();
-            }).catch((err) => console.log(err));
+			)
+			.then((response) => {
+				console.log(response);
+				getInvites();
+			})
+			.catch((err) => console.log(err));
+		// setInvites(invites.filter((invite) => invite.id !== inviteID));
 	};
 
 	const declineInvite = (inviteID) => {
-			axios.put(
+		axios
+			.put(
 				`http://localhost:1337/api/invites/decline-invite/${inviteID}`,
 				{},
 				{
@@ -52,10 +60,13 @@ const Invites = () => {
 						'x-access-token': localStorage.getItem('token'),
 					},
 				}
-			).then((response) => {
-                console.log(response);
-                getInvites();
-            }).catch((err) => console.log(err));
+			)
+			.then((response) => {
+				console.log(response);
+				getInvites();
+			})
+			.catch((err) => console.log(err));
+
 	};
 
 	return (

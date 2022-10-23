@@ -34,7 +34,7 @@ function Registration() {
 			localStorage.setItem('token', data.user.token);
 			storeUser(data.user);
 			alert('Registration successful');
-			navigate('/');
+			navigate('/groups');
 		} else {
 			alert('Please check the information you have provided');
 		}

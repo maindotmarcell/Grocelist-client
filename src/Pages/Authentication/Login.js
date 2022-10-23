@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 
@@ -9,6 +9,7 @@ function Login() {
 
 	const { user, storeUser } = useContext(UserContext);
 	const navigate = useNavigate();
+
 
 	// asynchronous api call to pass entered information to backend
 	const loginUser = async (event) => {
@@ -34,7 +35,7 @@ function Login() {
 			localStorage.setItem('token', data.user.token);
 			storeUser(data.user);
 			alert('Login successful');
-			navigate("/");
+			navigate('/groups');
 		} else {
 			alert('Please check your username and password');
 		}
