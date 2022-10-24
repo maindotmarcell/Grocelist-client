@@ -20,10 +20,13 @@ const User = () => {
   };
   const handleSubmit = () => {
     axios
-      .patch(`http://localhost:1337/api/authentication/${user.id}`, {
-        email,
-        name,
-      })
+      .patch(
+        `https://grocelist-server.herokuapp.com/api/authentication/${user.id}`,
+        {
+          email,
+          name,
+        }
+      )
       .then((response) => console.log(response.data));
   };
   console.log(user);
