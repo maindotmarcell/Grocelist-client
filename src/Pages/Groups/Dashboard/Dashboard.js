@@ -48,9 +48,10 @@ const Dashboard = () => {
     setDashNotes(e.target.value);
   };
   //takes care of the delete function but not yet implemented
-  const handleDelete = () => {
-    console.log(dashnotes);
-    delete Dashboard.dashnotes;
+  const handleDelete = (i) => {
+    const data = notesC.filter(s => s !== i )
+    setNotesC(data);  
+    
   };
 
   return (
@@ -77,7 +78,7 @@ const Dashboard = () => {
             <div className={styles.noteContent}>
               {i?.dashtitles}
               ✏︎ {i?.dashnotes}
-              <button className={styles.handleDelete} onClick={handleDelete}>
+              <button className={styles.handleDelete} onClick={()=>handleDelete(i)}>
                 <IoRemoveCircleOutline />
               </button>
             </div>
