@@ -1,116 +1,119 @@
 .navMenu {
-	height: 60px;
-	display: flex;
-	width: 100vw;
-	position: fixed;
-	justify-content: space-between;
-	align-items: center;
-	color: white;
-	background-color: rgba(111, 0, 255, 0.918);
+  height: 60px;
+  display: flex;
+  width: 100vw;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: rgba(111, 0, 255, 0.918);
 }
 
 .nav_end {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	margin-right: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 40px;
 }
 .menu_bars {
-	margin-left: 2rem;
-	font-size: 2rem;
-	background: none;
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
 }
 
 .nav_menu {
-	background-color: white;
-	color: #e1e1e1;
-	width: 250px;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	position: fixed;
-	top: 0;
-	left: -100%;
-	transition: 850ms;
-	background-color: rgba(111, 0, 255, 0.918);
+  background-color: white;
+  color: #e1e1e1;
+  width: 250px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  background-color: rgba(111, 0, 255, 0.918);
 }
 
 .nav_menu_active {
-	background-color: white;
-	color: rgb(230, 230, 230);
-	width: 200px;
-	height: 100%;
-	display: flex;
-	position: fixed;
-	top: 60px;
-	left: 0;
-	transition: 350ms;
-	background-color: #6f00ffea;
+  background-color: white;
+  color: rgb(230, 230, 230);
+  width: 200px;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  transition: 350ms;
+  background-color: #6f00ffea;
 }
 .menu_bars {
-	margin-left: 2rem;
-	font-size: 2rem;
-	background: none;
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
 }
 
 .nav_text {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	list-style: none;
-	height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  height: 60px;
 }
 
 .nav_text a {
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-	font-size: 18px;
-	width: 95%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	padding: 0 16px;
-	border-radius: 4px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
 }
 
 .nav_text a:hover {
-	background-color: #1a83ff;
+  background-color: #1a83ff;
 }
 .nav_text a:focus {
-	background-color: white;
-	color: black;
-	width: 80%;
-	border-top-right-radius: 40px;
-	border-bottom-right-radius: 40px;
-	transition-duration: 400ms;
+  background-color: white;
+  color: black;
+  width: 80%;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  transition-duration: 400ms;
 }
 
 .nav_menu_items {
-	width: 100%;
-	padding: 0;
+  width: 100%;
+  padding: 0;
 }
 
 .ProfileIcon {
-	padding: 10px;
+  padding: 10px;
 }
 button,
 .submitButton {
-	padding: 5px;
-	margin: 5px;
-	background-color: white;
-	border: black solid 1px;
-	border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  border: black solid 1px;
+  border-radius: 3px;
 }
 
 button:hover,
 .submitButton:hover {
-	background-color: rgb(243, 234, 234);
+  background-color: rgb(243, 234, 234);
 }
 
 .logoutWrapper {
-	text-align: center;
+  text-align: center;
 }
 
 .logoutWrapper button {
-	margin: 10px;
+  margin: 10px;
 }
