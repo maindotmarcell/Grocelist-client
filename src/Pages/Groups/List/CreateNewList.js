@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { GroceryListContext } from "./List";
 
+// Pass items to empty array and set to empty string
 const CreateNewList = () => {
   const { listCollection, setListCollection } = useContext(GroceryListContext);
   const [newList, setNewList] = useState({
@@ -9,13 +10,15 @@ const CreateNewList = () => {
   });
   const [newItem, setNewItem] = useState("");
   const [newListTitle, setNewListTitle] = useState("");
-
+ 
+  // Use Filter function to check and remove if listitem does not equal the existing item value
   const removeItem = (item) => {
     setNewList({
       items: newList.items.filter((listItem) => listItem !== item)
     });
   };
 
+  // Push/Add element to beginning of array
   const addItem = (e) => {
     e.preventDefault();
     setNewList({
@@ -31,9 +34,10 @@ const CreateNewList = () => {
   };
 
   useEffect(() => {
-    console.log("New List: ", newList);
+    console.log("New List: ", newList); //Save output of the new list element
   }, [newList]);
-
+  
+  
   return (
     <form
       onSubmit={addList}
