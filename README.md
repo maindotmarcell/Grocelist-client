@@ -23,6 +23,11 @@ Users can also add people into a group and create group grocerylist
 ### Lists - Deepti Mallampalli 
 Users can create group grocerylist and delete and view them on the dashboard
 
+### Item Management - Nexus
+Users can add and delete items within a group grocerylist.
+
+### Event Timeline Management - Deepti Mallampalli
+Users can view events within a registered group. Users are then able to hide selected events.
 ### Reminders 
 Users can reminders which they are notified of on that certain day
 
