@@ -49,7 +49,7 @@ const Navbar = (props) => {
 		<div>
 			<div className={classes.navMenu}>
 				<AiOutlineMenu className={classes.menu_bars} onClick={showSidebar} />
-				<h1>Grocelist</h1>
+				<h1>Grocelist Demo</h1>
 				<div className={classes.nav_end}>
 					<Link to={'/user'}>
 						<MdPermIdentity className={classes.ProfileIcon} />
