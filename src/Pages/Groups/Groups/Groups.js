@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../../Constants/axios';
 import UserContext from '../../../context/UserContext';
 import styles from './Groups.module.css';
 import GroupContext from '../../../context/GroupContext';

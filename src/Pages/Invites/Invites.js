@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import styles from './Invites.module.css';
-import axios from 'axios';
+import axios from '../../Constants/axios'
 
 const Invites = () => {
 	const [invites, setInvites] = useState([]);

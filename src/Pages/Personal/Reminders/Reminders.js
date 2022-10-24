@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../../Constants/axios'
 import { useState, useEffect } from 'react';
 import styles from './Reminder.module.css';
 

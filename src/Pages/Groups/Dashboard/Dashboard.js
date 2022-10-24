@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import styles from './Dashboard.module.css';
 import { IoAddCircleOutline, IoRemoveCircleOutline } from 'react-icons/io5';
-import axios from 'axios';
+import axios from '../../../Constants/axios';
 import GroupContext from '../../../context/GroupContext';
 import { useNavigate } from 'react-router-dom';
 

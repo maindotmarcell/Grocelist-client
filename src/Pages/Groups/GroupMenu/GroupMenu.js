@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import GroupContext from '../../../context/GroupContext';
 import styles from './GroupMenu.module.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../../Constants/axios';
 import Groups from '../Groups/Groups';
 import UserContext from '../../../context/UserContext';
 

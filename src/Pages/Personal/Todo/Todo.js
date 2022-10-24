@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './TodoStyle.module.css';
 import { IoAddCircleOutline } from 'react-icons/io5';
-import axios from 'axios';
+import axios from '../../../Constants/axios'
 import UserContext from '../../../context/UserContext';
 import { AiFillDelete } from 'react-icons/ai';
 

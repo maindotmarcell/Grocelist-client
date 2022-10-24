@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../Constants/axios';
 import { useContext, useReducer, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
