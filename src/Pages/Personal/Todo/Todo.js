@@ -48,7 +48,7 @@ const Todo = () => {
     //On button Click send the data to the user.
     // send the data to the backend based on the current user
 
-    axios.post('https://grocelist-server.herokuapp.com/api/personaltodos', {
+    axios.post(`api/personaltodos`, {
       user: user.id,
       todo: todoitems,
       date,
