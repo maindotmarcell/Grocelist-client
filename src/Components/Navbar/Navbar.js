@@ -17,21 +17,25 @@ const Navbar = (props) => {
 
 	function logout() {
 		localStorage.removeItem('token');
-		storeUser(null);
-		window.location.href = '/login';
+		storeUser({name: ''});
+		navigate('login');
 	}
 
 	async function getLoggedInUser() {
-		const response = await fetch('https://grocelist-server.herokuapp.com/api/authentication/current-user', {
-			headers: {
-				'x-access-token': localStorage.getItem('token'),
-			},
-		});
+		const response = await fetch(
+			'https://grocelist-server.herokuapp.com/api/authentication/current-user',
+			{
+				headers: {
+					'x-access-token': localStorage.getItem('token'),
+				},
+			}
+		);
 
 		const data = await response.json();
 		if (data.status === 'ok') {
 			storeUser(data.user);
 		} else {
+			storeUser({name: ''});
 			console.log(data.error);
 		}
 	}
