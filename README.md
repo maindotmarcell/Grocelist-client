@@ -16,7 +16,9 @@ The backend is built with MongoDB express and Node/Express.js and deployed on He
 ### Authentication and Group Management -  Marcell Munnich 
 User can register and login
 
-Users can also add people into a group and create group grocery list 
+**Note: Register still requires client-side validation**
+
+Users can create/delete groups and create invitations to add other users
 
 ### Add Personal Todo - Assigned to Asadul Islam Symon
 Users can add and delete  in personal todo and view them on the dashboard
