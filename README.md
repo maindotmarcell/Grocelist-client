@@ -1,30 +1,37 @@
 # Group 8 Project
+## Link to application
+Website accessible on:[https://grocelist-client.netlify.app](https://grocelist-client.netlify.app) 
+
 ## Description
-A todolist app for flatmates 
+A shared grocery list application for flatmates 
 
 ## Tech Stack
-The front end is built with React 
-The backend is built with mongodb express and nodejs 
+The front end is built with React and deployed on Netflify (CI/CD)
 
-## Feature Management
+The backend is built with MongoDB express and Node/Express.js and deployed on Heroku (CI/CD)
+
+
+## Features 
+
+### Authentication and Group Management -  Marcell Munnich 
+User can register and login
+
+Users can also add people into a group and create group grocery list 
 
 ### Add Personal Todo - Assigned to Asadul Islam Symon
-Users can add and delete  in personal todo and view them on the dahsboard
-
+Users can add and delete  in personal todo and view them on the dashboard
 
 ### Dashboard - Nexus Baquir 
 Users can view all the todos pending on that day and the reminders for a certain day
+
 Also user can in add in notes for other users to use
 
-### Authentication and Group Management -  Marcell Munnich 
-User can register and login and create groups
-Users can also add people into a group and create group grocerylist 
 
 ### Lists - Deepti Mallampalli 
-Users can create group grocerylist and delete and view them on the dashboard
+Users can create group grocery list and delete and view them on the dashboard
 
 ### Item Management - Nexus
-Users can add and delete items within a group grocerylist.
+Users can add and delete items within a group grocery list.
 
 ### Event Timeline Management - Deepti Mallampalli
 Users can view events within a registered group. Users are then able to hide selected events.
@@ -50,10 +57,16 @@ to run the program on your local Machine
 ## Running Backend locally
 
 Make sure to pull the main branch of our server application repository from: [https://github.com/maindotmarcell/Grocelist-Server](https://github.com/maindotmarcell/Grocelist-Server) 
-Make sure you have all the dependencies and Mongo DB installed on your local machine.
+Make sure you have Mongo DB installed on your local machine.
 And in a separate terminal run:
+```
+npm install
+```
+to install NPM dependency packages
+
+Followed by: 
 ```
 npm run dev
 ```
 
-By running the two (back-end and front-end) applications simoultaneously, you will be able to use the above-mentioned features.
+By running the two (back-end and front-end) applications simultaneously, you will be able to use the above-mentioned features.
