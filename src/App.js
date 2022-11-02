@@ -6,6 +6,7 @@ import Todo from './Pages/Personal/Todo/Todo';
 import Home from './Pages/Home/Home';
 import Dashboard from './Pages/Groups/Dashboard/Dashboard';
 import List from './Pages/Groups/List/List';
+import CreateNewList from './Pages/Groups/List/CreateNewList';
 import Reminder from './Pages/Personal/Reminders/Reminders';
 import Registration from './Pages/Authentication/Registration/Registration';
 import Login from './Pages/Authentication/Login/Login';
@@ -20,6 +21,7 @@ import Invites from './Pages/Invites/Invites';
 import UserContext, { UserProvider } from './context/UserContext';
 import { GroupProvider } from './context/GroupContext';
 import User from './Pages/Authentication/User';
+import Timeline from './Pages/Groups/List/Timeline';
 
 function App() {
 	const [sideToggle, setsideToggle] = useState(true);
