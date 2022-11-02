@@ -1,54 +1,64 @@
-import React, { useContext, useState } from 'react';
+import { createContext, useState } from "react";
+import CreateNewList from "./CreateNewList";
 import { useNavigate } from 'react-router-dom';
-import GroupContext from '../../../context/GroupContext';
+//import TimeLine from "./TimeLine";
+export const GroceryListContext = createContext();
 
-export default function App() {
-	const [toggleForm, setToggleForm] = useState(false);
-	const [groceryList, setGroceryList] = useState([]);
-	const [newItem, setNewItem] = useState('');
-	const { group } = useContext(GroupContext);
-	const navigate = useNavigate();
+//Define list elements and set useState to empty array
+const App = () => {
+  const [listCollection, setListCollection] = useState([]);
+  const [createNewList, setCreateNewList] = useState(false);
+  const navigate = useNavigate();
 
-	const updateList = () => {
-		// get the items and assing to the grocery list
-		const newList = [...groceryList, newItem];
-		setGroceryList(newList);
-	};
+  const openCreateNewList = () => {
+    setCreateNewList(true);
+  };
 
-	return (
-		<div className="Lists">
-			<button onClick={() => navigate(-1)}>Go back</button>
-			<h2>{group.name}</h2>
-			<h3 data-testid="input">Make a Grocery List!</h3>
-			<div style={{ marginBottom: '10px' }}>
-				<button onClick={() => setToggleForm(true)}>Create New List</button>
-				<button onClick={() => setToggleForm(false)}>Close</button>
-			</div>
-			{toggleForm && (
-				<div>
-					<input
-						type="text"
-						placeholder="New Item"
-						value={newItem}
-						onChange={(e) => setNewItem(e.target.value)}
-					/>
-					<button onClick={updateList}>Add to List</button>
-					<div
-						style={{
-							margin: '10px auto',
-							border: '1px solid black',
-							width: '200px',
-							borderRadius: '10px',
-							padding: '20px 15px',
-						}}
-					>
-						<p>Grocery List</p>
-						{groceryList.map((item, index) => {
-							return <div key={index}>{item}</div>;
-						})}
-					</div>
-				</div>
-			)}
-		</div>
-	);
-}
+  const closeCreateNewList = () => {
+    setCreateNewList(false);   //value must be true
+  };
+
+  const deleteList = (list) => {
+    setListCollection(
+      listCollection.filter((singleList) => singleList !== list)  //Delete list value if singlist value does equal the existing list value
+    );
+  };
+  //provider component passes the values given 
+  return (
+    <GroceryListContext.Provider value={{ listCollection, setListCollection }}> 
+	  <button onClick={() => navigate(-1)}>Go back</button>
+      <h2>Grocery Lists</h2>
+      <div>
+        <button onClick={openCreateNewList}>Create New List</button>
+        <button onClick={closeCreateNewList}>Close</button>
+		
+		<button onClick={() => navigate('/groups/menu/timeline')}>View Timeline</button>
+      </div>
+      {createNewList && <CreateNewList />}
+      <h3>All Lists</h3>
+      {listCollection &&
+        listCollection.map((groceryList, index) => {
+          return (
+            <div
+              key={groceryList}
+              style={{ border: "1px solid grey", width: "400px" }}
+            >
+              <h3>{groceryList.title}</h3>
+              <button onClick={() => deleteList(groceryList)}>
+                Delete List
+              </button>
+              {groceryList.items.map((item, index) => {
+                return (
+                  <div key={`${item}-${index}`}>
+                    <p>{item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+    </GroceryListContext.Provider>
+  );
+};
+
+export default App;
